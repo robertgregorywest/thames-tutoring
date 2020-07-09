@@ -1,0 +1,49 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Poppins";
+}
+
+.page-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10vw 0;
+  max-width: 75%;
+  margin: auto;
+  text-align: center;
+}
+
+.page-head-title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-base);
+}
+
+@media (max-width: 740px) {
+  .page-head {
+    max-width: 100%;
+  }
+
+  .page-head-title {
+    font-size: 2rem;
+  }
+}
+
+.image {
+  max-width: 100%;
+  width: 100%;
+}
+
+.width-full {
+    position: relative;
+    width: 94vw;
+    min-width: 100%;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    transform: translateX(calc(50vw - 50%));
+}

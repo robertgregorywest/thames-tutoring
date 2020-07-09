@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import '../../assets/scss/init.scss';
+import Footer from '../Footer/index';
+import '../../assets/scss/global.scss';
 import '../../assets/scss/variables.scss';
-import './styles.scss';
+import './style.scss';
 import './hamburger.scss';
+import logo from '../../assets/logos/logo.svg';
 
 const Layout = props => {
   const { title, children } = props;
@@ -12,26 +14,30 @@ const Layout = props => {
     <div className={`site-wrapper ${toggleNav ? 'site-head-open' : ''}`}>
       <header className="site-head">
         <div className="site-head-container">
-          <div className="site-head-center">
+          <div className="site-head-left">
             <Link className="site-head-logo" to="/">
+              <img src={logo} alt="Thames Tutoring Logo" />
               {title}
             </Link>
           </div>
-          <nav id="swup" className="site-head-right">
+          <nav className="site-head-right">
             <ul className="nav" role="menu">
-              <li className="nav-home nav-current" role="menuitem">
+              <li className="nav-current" role="menuitem">
                 <Link to="/">Home</Link>
               </li>
-              <li className="nav-about" role="menuitem">
+              <li role="menuitem">
                 <Link to="/about">About</Link>
               </li>
-              <li className="nav-elements" role="menuitem">
+              <li role="menuitem">
                 <Link to="/tuition">Tuition</Link>
               </li>
-              <li className="nav-elements" role="menuitem">
+              <li role="menuitem">
                 <Link to="/courses">Courses</Link>
               </li>
-              <li className="nav-elements" role="menuitem">
+              <li role="menuitem">
+                <Link to="/blog">Blog</Link>
+              </li>
+              <li className="nav-contact" role="menuitem">
                 <Link to="/contact">Contact</Link>
               </li>
             </ul>
@@ -57,13 +63,7 @@ const Layout = props => {
       <main className="site-main">
         {children}
       </main>
-      <footer className="site-foot">
-        &copy;
-        {' '}
-        {new Date().getFullYear()}
-        {' '}
-        Thames Tutoring
-      </footer>
+      <Footer />
     </div>
   );
 };
