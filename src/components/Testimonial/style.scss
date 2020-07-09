@@ -1,0 +1,29 @@
+.testimonial {
+  max-width: 75%;
+  margin: auto;
+}
+
+.testimonial p {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.testimonial-quote p {
+  quotes: "“" "”" "‘" "’";
+}
+
+.testimonial-quote p:before {
+  content: open-quote;
+  font-size: 2rem;
+  margin-right: 0.2rem;
+  font-weight: 700;
+}
+
+.testimonial-quote p:after {
+  content: close-quote;
+  font-size: 2rem;
+  margin-left: 0.2rem;
+  font-weight: 700;
+}

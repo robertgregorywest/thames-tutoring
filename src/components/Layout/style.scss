@@ -62,13 +62,13 @@ li.nav-contact {
 }
 
 .nav-contact a:hover {
-  opacity: 1;
+  opacity: 0.75;
 }
 
 .nav-contact a {
   color: var(--color-bg);
-  opacity: 0.75;
-  background-color: var(--color-base);
+  opacity: 1;
+  background-color: var(--color-action);
 }
 
 .site-head-left {

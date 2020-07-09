@@ -1,7 +1,16 @@
 {
   "parser": "babel-eslint",
-  "extends": ["prettier", "airbnb"],
-  "plugins": ["import", "jsx-a11y", "react", "prettier"],
+  "extends": [
+    "airbnb", 
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "react",
+    "prettier"
+  ],
   "globals": {
     "graphql": true,
     "window": true
@@ -17,6 +26,7 @@
     "function-paren-newline": "off",
     "no-console": "off",
     "prefer-destructuring": "off",
+    "prettier/prettier": "error",
     "semi": ["error", "always"],
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
