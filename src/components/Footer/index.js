@@ -1,8 +1,7 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { Link } from 'gatsby';
 import logo from '../../assets/logos/logo-black.svg';
-import './style.scss';
+import './footer.scss';
 
 const Footer = () => (
   <footer className="site-foot">
@@ -12,16 +11,9 @@ const Footer = () => (
         Thames Tutoring
       </Link>
       <p>
-        Made with
-        {' '}
-        <Link
-          to="https://kontent.ai/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Kentico Kontent
-        </Link>
-        {/* {' '} */}
+        <a href="mailto:info@thamestutoring.com">info@thamestutoring.com</a>
+        <br />
+        07555346594
       </p>
       <div>
         <nav className="social-icons">

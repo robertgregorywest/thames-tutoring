@@ -24,6 +24,12 @@
   margin-top: 2rem;
 }
 
+@media (max-width: 850px) {
+  .course-listing__image-wrapper {
+    height: 350px;
+  }
+}
+
 @media (max-width: 500px) {
   .course-listing__cta {
     margin-top: 1.5rem;

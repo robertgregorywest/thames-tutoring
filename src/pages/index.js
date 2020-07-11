@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
@@ -16,8 +15,11 @@ const Index = ({ data }) => {
   const aboutUsTitle = data.kontentItemHome.elements.about_us_title.value;
   const aboutUsRichText = data.kontentItemHome.elements.about_us;
 
-  const testimonial = data.kontentItemHome.elements.testimonial.value[0].elements.testimonial;
-  const attribution = data.kontentItemHome.elements.testimonial.value[0].elements.attribution.value;
+  const testimonial =
+    data.kontentItemHome.elements.testimonial.value[0].elements.testimonial;
+  const attribution =
+    data.kontentItemHome.elements.testimonial.value[0].elements.attribution
+      .value;
 
   const featuredCourses = data.kontentItemHome.elements.featured_courses.value;
 
@@ -83,8 +85,8 @@ export const pageQuery = graphql`
                   value
                 }
                 attribution {
-                value
-              }
+                  value
+                }
               }
             }
           }

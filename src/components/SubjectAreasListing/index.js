@@ -17,11 +17,11 @@ const SubjectAreasListing = ({ subjectAreas }) => (
           </div>
         ))}
     </div>
-    <p className="subject-areas-listing__cta">
+    <div className="subject-areas-listing__cta">
       <a href="/" className="cta">
         Learn more
       </a>
-    </p>
+    </div>
   </div>
 );
 

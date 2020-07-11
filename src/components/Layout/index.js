@@ -1,14 +1,13 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { Link } from 'gatsby';
-import Footer from '../Footer/index';
+import Footer from '../Footer';
 import '../../assets/scss/global.scss';
 import '../../assets/scss/variables.scss';
 import './style.scss';
 import './hamburger.scss';
 import logo from '../../assets/logos/logo.svg';
 
-const Layout = props => {
+const Layout = (props) => {
   const { title, children } = props;
   const [toggleNav, setToggleNav] = React.useState(false);
   return (
@@ -61,9 +60,7 @@ const Layout = props => {
           </a>
         </div>
       </header>
-      <main className="site-main">
-        {children}
-      </main>
+      <main className="site-main">{children}</main>
       <Footer />
     </div>
   );
