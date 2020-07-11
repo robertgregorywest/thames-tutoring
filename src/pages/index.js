@@ -4,6 +4,8 @@ import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
+import CourseListing from '../components/CourseListing';
+import SubjectAreasListing from '../components/SubjectAreasListing';
 import Testimonial from '../components/Testimonial';
 
 const Index = ({ data }) => {
@@ -16,40 +18,34 @@ const Index = ({ data }) => {
 
   const testimonial = data.kontentItemHome.elements.testimonial.value[0].elements.testimonial;
   const attribution = data.kontentItemHome.elements.testimonial.value[0].elements.attribution.value;
+
+  const featuredCourses = data.kontentItemHome.elements.featured_courses.value;
+
+  const subjectAreas = data.kontentItemHome.elements.subject_areas.value;
+
   return (
     <Layout title={siteTitle}>
       <header className="page-head">
-        <RichTextElement
-          value={vision.value}
-          images={vision.images}
-          resolveImage={image => (
-            <figure className="width-full">
-              <Image
-                fluid={image.fluid}
-                title={image.description}
-                alt={image.description}
-              />
-            </figure>
-          )}
-        />
+        <RichTextElement value={vision.value} />
       </header>
+
       <figure className="width-full">
-        <Image
-          fluid={heroImage.fluid}
-          title={heroImage.description}
-          alt={heroImage.description}
-        />
+        <Image fluid={heroImage.fluid} alt={heroImage.description} />
       </figure>
-      <p>Latest courses triple block</p>
-      <div className="flex-grid">
+
+      <CourseListing featuredCourses={featuredCourses} />
+
+      <div className="flex-grid about">
         <div className="col">
-          <h2>{aboutUsTitle}</h2>
+          <h2 className="about__title">{aboutUsTitle}</h2>
         </div>
-        <div className="col">
+        <div className="col about__text">
           <RichTextElement value={aboutUsRichText.value} />
         </div>
       </div>
-      <p>Subjects triple block</p>
+
+      <SubjectAreasListing subjectAreas={subjectAreas} />
+
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );
@@ -98,6 +94,64 @@ export const pageQuery = graphql`
         }
         about_us {
           value
+        }
+        featured_courses {
+          value {
+            ... on kontent_item_course {
+              elements {
+                title {
+                  value
+                }
+                summary_image {
+                  value {
+                    fluid(maxWidth: 500) {
+                      ...KontentAssetFluid
+                    }
+                    description
+                  }
+                }
+                summary {
+                  value
+                }
+                url {
+                  value
+                }
+                dates {
+                  value
+                }
+                cost {
+                  value
+                }
+                subject_option {
+                  value {
+                    ... on kontent_item_subject_option {
+                      id
+                      elements {
+                        title {
+                          value
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        subject_areas {
+          value {
+            ... on kontent_item_subject_area {
+              id
+              elements {
+                title {
+                  value
+                }
+                summary {
+                  value
+                }
+              }
+            }
+          }
         }
       }
     }

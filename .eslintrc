@@ -2,8 +2,8 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb", 
-    "prettier",
-    "prettier/react"
+    "prettier/react",
+    "plugin:prettier/recommended"
   ],
   "plugins": [
     "import",
@@ -21,7 +21,7 @@
       "as-needed",
       { "requireReturnForObjectLiteral": true }
     ],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": "off",
     "comma-dangle": ["error", "always-multiline"],
     "function-paren-newline": "off",
     "no-console": "off",

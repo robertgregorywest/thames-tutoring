@@ -12,14 +12,102 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
 }
+
+// Grid system
 
 .flex-grid {
   display: flex;
 }
 
-.col {
+.flex-grid .col {
   flex: 1;
+}
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-grid-thirds .col {
+  width: 31%;
+}
+
+@media (max-width: 500px) {
+  .flex-grid,
+  .flex-grid-thirds {
+    display: block;
+    .col {
+      width: 100%;
+      margin: 0 0 1.75rem 0;
+    }
+  }
+}
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    line-height: 1.4;
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    margin: 0 0 0.5em 0;
+    font-size: 5.7rem;
+    font-weight: 800;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2.7rem;
+    }
+}
+
+h2 {
+    margin: 1.5em 0 0.5em 0;
+    font-size: 2.5rem;
+}
+@media (max-width: 500px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+h3 {
+    margin: 1.5em 0 1em 0;
+    font-size: 2rem;
+}
+@media (max-width: 500px) {
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+h4 {
+    margin: 1.5em 0 1em 0;
+    font-size: 2.6rem;
+}
+
+h5 {
+    margin: 1.5em 0 1em 0;
+    font-size: 2.4rem;
+}
+
+h6 {
+    margin: 1.5em 0 1em 0;
+    font-size: 2.2rem;
+}
+
+p {
+  line-height: 2rem;
 }
 
 // Header
@@ -29,7 +117,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8vw 0;
+  padding: 5vw 0;
   max-width: 75%;
   margin: auto;
   text-align: center;
@@ -38,7 +126,6 @@ body {
 .page-head h2 {
   margin: 1.25rem 0;
   font-size: 3rem;
-  font-weight: 500;
   color: var(--color-base);
   line-height: 4rem;
 }
@@ -54,6 +141,7 @@ body {
 
   .page-head h2 {
     font-size: 2rem;
+    line-height: 2.75rem;
   }
 
   .page-head p {
@@ -73,4 +161,45 @@ body {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   transform: translateX(calc(50vw - 50%));
+}
+
+// CTA
+
+a.cta {
+  display: inline-block;
+  background-color: var(--color-action);
+  padding: 1rem;
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+a.cta:hover {
+  opacity: 0.75;
+}
+
+// About
+
+.about {
+  margin: 8vw 0;
+}
+
+.about__title {
+  margin-top: 0;
+}
+
+.about__text p {
+  margin-top: 0;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+}
+
+@media (max-width: 500px) {
+  .about__title {
+    text-align: center;
+  }
+  .about__text p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
 }

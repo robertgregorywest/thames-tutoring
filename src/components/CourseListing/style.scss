@@ -1,0 +1,31 @@
+.course-listing {
+  margin: 8vw 0;
+}
+
+.course-listing__image-wrapper {
+  height: 250px;
+  overflow: hidden;
+}
+
+.course-listing__title {
+  text-align: center;
+}
+
+.course-listing__figure {
+  margin: 0 0 1rem 0;
+}
+
+.course-listing__course-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.course-listing__cta {
+  margin-top: 2rem;
+}
+
+@media (max-width: 500px) {
+  .course-listing__cta {
+    margin-top: 1.5rem;
+  }
+}

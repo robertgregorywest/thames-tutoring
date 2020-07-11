@@ -1,12 +1,12 @@
 .testimonial {
   max-width: 75%;
-  margin: auto;
+  margin: 8vw auto;
 }
 
-.testimonial p {
+.testimonial-quote p {
   font-size: 2rem;
   line-height: 3rem;
-  font-weight: 500;
+  font-weight: var(--font-bold);
   text-align: center;
 }
 
@@ -26,4 +26,24 @@
   font-size: 2rem;
   margin-left: 0.2rem;
   font-weight: 700;
+}
+
+.testimonial__attribution {
+  font-size: 1.5rem;
+  font-weight: var(--font-normal);
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .testimonial {
+    max-width: 100%;
+  }
+
+  .testimonial-quote p {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+  .testimonial__attribution {
+    font-size: 1.25rem;
+  }
 }

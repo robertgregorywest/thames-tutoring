@@ -7,7 +7,7 @@ const Testimonial = ({ testimonial, attribution }) => (
     <div className="testimonial-quote">
       <RichTextElement value={testimonial.value} />
     </div>
-    <p>– {attribution}</p>
+    <p className="testimonial__attribution">– {attribution}</p>
   </div>
 );
 
