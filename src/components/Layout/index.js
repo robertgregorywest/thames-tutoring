@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import Footer from '../Footer';
 import '../../assets/scss/global.scss';
@@ -12,6 +13,9 @@ const Layout = (props) => {
   const [toggleNav, setToggleNav] = React.useState(false);
   return (
     <div className={`site-wrapper ${toggleNav ? 'site-head-open' : ''}`}>
+      <Helmet defaultTitle={title}>
+        <html lang="en" />
+      </Helmet>
       <header className="site-head">
         <div className="site-head-container">
           <div className="site-head-left">
