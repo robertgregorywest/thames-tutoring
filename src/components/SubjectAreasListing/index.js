@@ -13,14 +13,14 @@ const SubjectAreasListing = ({ subjectAreas }) => (
                 {subject.elements.title.value}
               </h3>
               <p>{subject.elements.summary.value}</p>
+              <p>
+                <a href="/">
+                  Learn more about {subject.elements.title.value.toLowerCase()}
+                </a>
+              </p>
             </div>
           </div>
         ))}
-    </div>
-    <div className="subject-areas-listing__cta">
-      <a href="/" className="cta">
-        Learn more
-      </a>
     </div>
   </div>
 );

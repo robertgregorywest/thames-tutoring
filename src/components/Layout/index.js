@@ -13,7 +13,7 @@ const Layout = (props) => {
   const [toggleNav, setToggleNav] = React.useState(false);
   return (
     <div className={`site-wrapper ${toggleNav ? 'site-head-open' : ''}`}>
-      <Helmet defaultTitle={title}>
+      <Helmet defaultTitle={title} titleTemplate={`{title} - %s`}>
         <html lang="en" />
       </Helmet>
       <header className="site-head">

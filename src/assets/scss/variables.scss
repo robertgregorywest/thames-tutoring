@@ -6,6 +6,13 @@
     --color-bg: #f8f8f8;
     --color-action: #a81971;
 
+    --color-tt-green: #33b545;
+    --color-tt-orange: #f46e30;
+    --color-tt-purple: #a81971;
+    --color-tt-blue: #14b3d9;
+    --color-tt-red: #f03949;
+    --color-tt-yellow: #ebd20e;
+
     /* Fonts */
     --font-normal: 300;
     --font-bold: 500;
@@ -20,5 +27,8 @@
     /* Sizes */
     --height: 4rem;
     --margin: 2rem;
-    --radius: 0.5rem;
+    --radius: 5px;
+
+    /* Transforms */
+    --standard-skew: -6deg;
 }

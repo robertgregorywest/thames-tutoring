@@ -53,61 +53,66 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: 0;
-    line-height: 1.4;
-    font-weight: 500;
-    text-rendering: optimizeLegibility;
+  margin-top: 0;
+  line-height: 1.4;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
 }
 
 h1 {
-    margin: 0 0 0.5em 0;
-    font-size: 5.7rem;
-    font-weight: 800;
+  margin: 0 0 0.5em 0;
+  font-size: 5.7rem;
+  font-weight: 800;
 }
 
 @media (max-width: 500px) {
-    h1 {
-        font-size: 2.7rem;
-    }
+  h1 {
+    font-size: 2.7rem;
+  }
 }
 
 h2 {
-    margin: 1.5em 0 0.5em 0;
-    font-size: 2.5rem;
+  margin: 1.5em 0 0.5em 0;
+  font-size: 2.5rem;
 }
 @media (max-width: 500px) {
-    h2 {
-        font-size: 1.5rem;
-    }
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 
 h3 {
-    margin: 1.5em 0 1em 0;
-    font-size: 2rem;
+  margin: 1.5em 0 1em 0;
+  font-size: 1.5rem;
 }
 @media (max-width: 500px) {
-    h3 {
-        font-size: 1.2rem;
-    }
+  h3 {
+    font-size: 1.1rem;
+  }
 }
 
 h4 {
-    margin: 1.5em 0 1em 0;
-    font-size: 2.6rem;
+  margin: 1.5em 0 1em 0;
+  font-size: 2.6rem;
 }
 
 h5 {
-    margin: 1.5em 0 1em 0;
-    font-size: 2.4rem;
+  margin: 1.5em 0 1em 0;
+  font-size: 2.4rem;
 }
 
 h6 {
-    margin: 1.5em 0 1em 0;
-    font-size: 2.2rem;
+  margin: 1.5em 0 1em 0;
+  font-size: 2.2rem;
 }
 
 p {
   line-height: 2rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
 }
 
 // Header
@@ -167,10 +172,17 @@ p {
 
 a.cta {
   display: inline-block;
-  background-color: var(--color-action);
-  padding: 1rem;
+  background-color: var(--color-tt-red);
+  padding: 0 15px;
+  line-height: 40px;
+  letter-spacing: 0.025em;
+  padding: 0 14px;
   color: var(--color-bg);
   text-decoration: none;
+  white-space: nowrap;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.15s ease;
 }
 
 a.cta:hover {
@@ -180,17 +192,42 @@ a.cta:hover {
 // About
 
 .about {
+  position: relative;
   margin: 8vw 0;
+  padding-top: 80px;
+  padding-bottom: 160px;
+  background-image: linear-gradient(120deg,var(--color-tt-red),var(--color-tt-yellow));
 }
 
 .about__title {
-  margin-top: 0;
+  margin: 0 5vw;
 }
 
 .about__text p {
-  margin-top: 0;
+  margin: 0 5vw;
   font-size: 1.25rem;
   line-height: 2.5rem;
+}
+
+.custom-shape-divider-bottom-1594916332 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1594916332 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1594916332 .shape-fill {
+    fill: var(--color-bg);
 }
 
 @media (max-width: 500px) {

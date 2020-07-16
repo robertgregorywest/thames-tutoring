@@ -37,14 +37,22 @@ const Index = ({ data }) => {
 
       <CourseListing featuredCourses={featuredCourses} />
 
-      <div className="flex-grid about">
+      <section className="flex-grid about">
+        <div className="custom-shape-divider-bottom-1594916332">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+              d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
+              className="shape-fill"
+            />
+          </svg>
+        </div>
         <div className="col">
           <h2 className="about__title">{aboutUsTitle}</h2>
         </div>
         <div className="col about__text">
           <RichTextElement value={aboutUsRichText.value} />
         </div>
-      </div>
+      </section>
 
       <SubjectAreasListing subjectAreas={subjectAreas} />
 

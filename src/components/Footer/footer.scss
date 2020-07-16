@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 8vw 0 1vw;
-  color: color(var(--color-border) l(-20%));
+  margin: 10vw 0 0 0;
+  color: var(--color-border);
   font-size: 1rem;
 }
 
@@ -64,17 +64,12 @@
 
 .social-icons__icon {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
   margin: 0;
-}
-
-.social-icons__icon--twitter {
-  width: 24px;
-  height: 24px;
 }
 
 .site-foot-right-container {
@@ -92,13 +87,13 @@
 }
 
 .site-foot ul {
-  margin-top: 0;
+  margin-top: 1rem;
   padding-left: 0;
 }
 
 .site-foot li {
   display: block;
-  margin: 0 0 0.4rem 0;
+  margin: 0 0 1rem 0;
   padding: 0;
 }
 

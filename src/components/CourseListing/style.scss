@@ -2,9 +2,11 @@
   margin: 8vw 0;
 }
 
-.course-listing__image-wrapper {
-  height: 250px;
-  overflow: hidden;
+.course-listing__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .course-listing__title {
@@ -15,18 +17,22 @@
   margin: 0 0 1rem 0;
 }
 
+.course-listing__image {
+  border-radius: var(--radius);
+}
+
 .course-listing__course-title {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
 .course-listing__cta {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 850px) {
   .course-listing__image-wrapper {
-    height: 350px;
+    height: 250px;
   }
 }
 
