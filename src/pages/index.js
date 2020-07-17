@@ -38,10 +38,10 @@ const Index = ({ data }) => {
       <CourseListing featuredCourses={featuredCourses} />
 
       <section className="flex-grid about">
-        <div className="custom-shape-divider-bottom-1594916332">
+        <div className="custom-shape-divider-top-1594982357">
           <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path
-              d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
+              d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
               className="shape-fill"
             />
           </svg>
@@ -51,6 +51,14 @@ const Index = ({ data }) => {
         </div>
         <div className="col about__text">
           <RichTextElement value={aboutUsRichText.value} />
+        </div>
+        <div className="custom-shape-divider-bottom-1594916332">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+              d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
+              className="shape-fill"
+            />
+          </svg>
         </div>
       </section>
 

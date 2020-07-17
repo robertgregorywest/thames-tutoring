@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Footer from '../Footer';
 import '../../assets/scss/global.scss';
 import '../../assets/scss/variables.scss';
-import './style.scss';
+import './layout.scss';
 import './hamburger.scss';
 import logo from '../../assets/logos/logo.svg';
 
@@ -19,30 +19,49 @@ const Layout = (props) => {
       <header className="site-head">
         <div className="site-head-container">
           <div className="site-head-left">
-            <Link className="site-head-logo" to="/">
-              <img src={logo} alt="Thames Tutoring Logo" />
+            <Link className="site-head__logo" to="/">
+              <img
+                src={logo}
+                alt="Thames Tutoring Logo"
+                className="site-head__logo-image"
+              />
               {title}
             </Link>
           </div>
           <nav className="site-head-right">
-            <ul className="nav" role="menu">
-              <li className="nav-current" role="menuitem">
-                <Link to="/">Home</Link>
+            <ul className="site-head__nav" role="menu">
+              <li role="menuitem" className="site-head__nav-item">
+                <Link to="/" className="site-head__link nav-current">
+                  Home
+                </Link>
               </li>
-              <li role="menuitem">
-                <Link to="/about">About</Link>
+              <li role="menuitem" className="site-head__nav-item">
+                <Link to="/about" className="site-head__link">
+                  About
+                </Link>
               </li>
-              <li role="menuitem">
-                <Link to="/tuition">Tuition</Link>
+              <li role="menuitem" className="site-head__nav-item">
+                <Link to="/tuition" className="site-head__link">
+                  Tuition
+                </Link>
               </li>
-              <li role="menuitem">
-                <Link to="/courses">Courses</Link>
+              <li role="menuitem" className="site-head__nav-item">
+                <Link to="/courses" className="site-head__link">
+                  Courses
+                </Link>
               </li>
-              <li role="menuitem">
-                <Link to="/blog">Blog</Link>
+              <li role="menuitem" className="site-head__nav-item">
+                <Link to="/blog" className="site-head__link">
+                  Blog
+                </Link>
               </li>
-              <li className="nav-contact" role="menuitem">
-                <Link to="/contact">Contact</Link>
+              <li role="menuitem" className="site-head__nav-item">
+                <Link
+                  to="/contact"
+                  className="site-head__link site-head__link--contact"
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </nav>

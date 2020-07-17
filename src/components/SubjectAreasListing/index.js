@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './subjectAreasListing.scss';
 
 const SubjectAreasListing = ({ subjectAreas }) => (
   <div className="subject-areas-listing">
@@ -14,7 +14,10 @@ const SubjectAreasListing = ({ subjectAreas }) => (
               </h3>
               <p>{subject.elements.summary.value}</p>
               <p>
-                <a href="/">
+                <a
+                  href="/"
+                  className="subject-areas-listing__link cta-secondary"
+                >
                   Learn more about {subject.elements.title.value.toLowerCase()}
                 </a>
               </p>

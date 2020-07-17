@@ -1,24 +1,16 @@
 // Wrapper
 
 .site-wrapper {
-  padding: 3vw;
   min-height: 100vh;
-  max-width: 1200px;
   margin: auto;
-}
-
-@media (max-width: 850px) {
-  .site-wrapper {
-      padding: 6vw;
-  }
 }
 
 // Site navigation
 
 .site-head {
   position: relative;
+  padding: 1vw var(--margin);
   z-index: 300;
-  margin-top: -10px;
   font-size: 1rem;
 }
 
@@ -28,61 +20,60 @@
   align-items: center;
 }
 
-.nav {
+.site-head__nav {
   display: flex;
   margin: 0 0 0 -12px;
   padding: 0;
   list-style: none;
 }
 
-.site-head li {
+.site-head__nav-item {
   display: block;
   margin: 0;
   padding: 0;
 }
 
-.site-head-right a {
+.site-head__link {
   display: block;
   margin: 0;
   padding: 10px 12px;
   color: var(--color-base);
-  font-weight: var(--font-normal);
+  font-weight: var(--font-bold);
   opacity: 0.75;
   text-decoration: none;
 }
 
-.nav-current a,
-.site-head a:hover {
+.nav-current,
+.site-head__link:hover {
   text-decoration: none;
   opacity: 1;
 }
 
-li.nav-contact {
-  margin-left: 18px;
-}
-
-.nav-contact a:hover {
-  opacity: 0.75;
-}
-
-.nav-contact a {
+.site-head__link--contact {
   color: var(--color-bg);
   opacity: 1;
   background-color: var(--color-action);
   white-space: nowrap;
   border-radius: var(--radius);
-  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-  transition: all .15s ease;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.15s ease;
+  margin-left: 18px;
+}
+
+.site-head__link--contact:hover {
+  opacity: 0.75;
 }
 
 .site-head-left {
   position: relative;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-right: 10px;
   white-space: nowrap;
 }
 
-.site-head-logo {
+.site-head__logo {
   flex-shrink: 0;
   display: flex;
   justify-content: space-between;
@@ -96,15 +87,11 @@ li.nav-contact {
   text-decoration: none;
 }
 
-.site-head-logo:hover {
-  text-decoration: none;
-}
-
-.site-head-logo img {
+.site-head__logo-image {
   display: block;
-  margin: 0 10px 0 0;
+  margin: 0 15px 0 0;
   width: auto;
-  height: 70px;
+  height: 75px;
 }
 
 .site-head-right {
@@ -122,14 +109,10 @@ li.nav-contact {
   position: absolute;
   right: 0;
   z-index: 9999;
-  padding: 22px 0 12px 12px;
+  padding: 28px 12px 12px 12px;
 }
 
 @media (max-width: 850px) {
-  .site-head {
-    padding: 0;
-  }
-
   .nav-burger {
     display: block;
   }
@@ -139,19 +122,13 @@ li.nav-contact {
     justify-content: flex-start;
     align-items: flex-start;
     height: 60px;
-    background: rgba(255,255,255,0);
     z-index: -1;
     transition: all 0.4s ease-out;
     overflow: hidden;
   }
 
-  .site-head-left {
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-
-  .site-head-logo img {
-    height: 40px;
+  .site-head__logo-image {
+    height: 50px;
   }
 
   .site-head-right {
@@ -164,27 +141,23 @@ li.nav-contact {
     transition-delay: 1s;
   }
 
-  .site-head-right a {
+  .site-head__link {
     margin: 1px 0;
     padding: 8px 0;
     font-size: 2rem;
     line-height: 1.15em;
     font-weight: 300;
     opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99),
-    opacity 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: transform 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     transform: translateY(-25px);
   }
 
-  li.nav-contact {
+  .site-head__link--contact {
     margin: 10px;
-  }
-
-  li.nav-contact a {
     padding: 10px;
   }
 
-  .nav {
+  .site-head__nav {
     width: 100%;
     flex-direction: column;
     justify-content: center;
@@ -193,7 +166,7 @@ li.nav-contact {
   }
 
   .site-head-open {
-    background: rgba(255,255,255,1);
+    background: rgba(255, 255, 255, 1);
     transition: background 0.5s ease-out;
     transition-delay: 0.25;
     overflow: hidden;
@@ -211,18 +184,13 @@ li.nav-contact {
     transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   }
 
-  .site-head-open .site-head-right a {
+  .site-head-open .site-head__link {
     opacity: 1;
-    transition: transform 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99),
-    opacity 0.9s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: transform 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.9s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     transform: translateY(0px);
   }
 
-  .site-head-open .nav-current a {
+  .site-head-open .nav-current {
     border-bottom: var(--color-base) 2px solid;
-  }
-
-  .site-head-open .site-head-right a {
-    opacity: 0.75;
   }
 }

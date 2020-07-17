@@ -1,5 +1,5 @@
 .course-listing {
-  margin: 8vw 0;
+  margin: 8vw var(--margin);
 }
 
 .course-listing__card {
@@ -30,14 +30,11 @@
   margin-top: 1rem;
 }
 
-@media (max-width: 850px) {
-  .course-listing__image-wrapper {
-    height: 250px;
-  }
-}
-
 @media (max-width: 500px) {
   .course-listing__cta {
     margin-top: 1.5rem;
+  }
+  .course-listing__title {
+    text-align: left;
   }
 }

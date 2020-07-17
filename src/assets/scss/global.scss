@@ -25,6 +25,10 @@ body {
   flex: 1;
 }
 
+.flex-grid .col2 {
+  flex: 2;
+}
+
 .flex-grid-thirds {
   display: flex;
   justify-content: space-between;
@@ -113,6 +117,7 @@ p {
 a {
   text-decoration: none;
   font-weight: 500;
+  color: var(--color-action);
 }
 
 // Header
@@ -130,9 +135,11 @@ a {
 
 .page-head h2 {
   margin: 1.25rem 0;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--color-base);
   line-height: 4rem;
+  font-weight: 700;
+  letter-spacing: 0.01rem;
 }
 
 .page-head p {
@@ -141,7 +148,7 @@ a {
 
 @media (max-width: 740px) {
   .page-head {
-    max-width: 100%;
+    max-width: 95%;
   }
 
   .page-head h2 {
@@ -170,7 +177,7 @@ a {
 
 // CTA
 
-a.cta {
+.cta {
   display: inline-block;
   background-color: var(--color-tt-red);
   padding: 0 15px;
@@ -185,8 +192,14 @@ a.cta {
   transition: all 0.15s ease;
 }
 
-a.cta:hover {
+.cta:hover,
+.cta-secondary:hover {
   opacity: 0.75;
+}
+
+.cta-secondary:after {
+    content: "\279C";
+    padding-left: 6px;
 }
 
 // About
@@ -194,49 +207,72 @@ a.cta:hover {
 .about {
   position: relative;
   margin: 8vw 0;
-  padding-top: 80px;
-  padding-bottom: 160px;
-  background-image: linear-gradient(120deg,var(--color-tt-red),var(--color-tt-yellow));
+  padding: 175px var(--margin) 125px var(--margin);
+  background-image: linear-gradient(75deg, var(--color-tt-green), var(--color-tt-yellow));
 }
 
 .about__title {
-  margin: 0 5vw;
+  margin: 0;
+}
+
+.about__text {
+  margin: 0;
+  font-size: 1.35rem;
 }
 
 .about__text p {
-  margin: 0 5vw;
-  font-size: 1.25rem;
+  margin-top: 0.65rem;
   line-height: 2.5rem;
 }
 
+.custom-shape-divider-top-1594982357 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1594982357 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px;
+  transform: rotateY(180deg);
+}
+
 .custom-shape-divider-bottom-1594916332 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
 }
 
 .custom-shape-divider-bottom-1594916332 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 80px;
+  transform: rotateY(180deg);
 }
 
-.custom-shape-divider-bottom-1594916332 .shape-fill {
-    fill: var(--color-bg);
+.shape-fill {
+  fill: var(--color-bg);
 }
 
 @media (max-width: 500px) {
-  .about__title {
-    text-align: center;
+  .about__text {
+    margin: 3vw;
+    font-size: 1.1rem;
   }
+
   .about__text p {
-    margin-top: 1rem;
-    font-size: 1rem;
+    margin: 0 3vw;
     line-height: 2rem;
   }
 }

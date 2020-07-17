@@ -1,10 +1,18 @@
 .site-foot {
   display: flex;
+  padding: var(--margin);
   justify-content: space-between;
   align-items: flex-start;
-  margin: 10vw 0 0 0;
-  color: var(--color-border);
+  margin: 8vw 0 0 0;
+  color: var(--color-bg);
   font-size: 1rem;
+  background-color: var(--color-base);
+}
+
+@media (max-width: 850px) {
+  .site-foot {
+      padding: 6vw;
+  }
 }
 
 .site-foot-left {
@@ -18,7 +26,7 @@
 }
 
 .site-foot a {
-  color: var(--color-base);
+  color: var(--color-bg);
 }
 
 .footer-logo {
@@ -27,7 +35,7 @@
   align-items: center;
   white-space: nowrap;
   margin-bottom: 2rem;
-  color: var(--color-base);
+  color: var(--color-bg);
   font-size: calc(1vw + 0.8rem);
   line-height: 1.4em;
   font-weight: 500;
