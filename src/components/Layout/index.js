@@ -11,9 +11,10 @@ import logo from '../../assets/logos/logo.svg';
 const Layout = (props) => {
   const { title, children } = props;
   const [toggleNav, setToggleNav] = React.useState(false);
+  const titleTemplate = `${title} - %s`;
   return (
     <div className={`site-wrapper ${toggleNav ? 'site-head-open' : ''}`}>
-      <Helmet defaultTitle={title} titleTemplate={`{title} - %s`}>
+      <Helmet defaultTitle={title} titleTemplate={titleTemplate}>
         <html lang="en" />
       </Helmet>
       <header className="site-head">

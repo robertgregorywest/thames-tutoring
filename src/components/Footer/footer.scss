@@ -3,10 +3,10 @@
   padding: var(--margin);
   justify-content: space-between;
   align-items: flex-start;
-  margin: 8vw 0 0 0;
-  color: var(--color-bg);
+  margin: 0;
+  color: var(--color-base);
   font-size: 1rem;
-  background-color: var(--color-base);
+  background-color: var(--color-bg);
 }
 
 @media (max-width: 850px) {
@@ -26,7 +26,7 @@
 }
 
 .site-foot a {
-  color: var(--color-bg);
+  color: var(--color-base);
 }
 
 .footer-logo {
@@ -35,7 +35,7 @@
   align-items: center;
   white-space: nowrap;
   margin-bottom: 2rem;
-  color: var(--color-bg);
+  color: var(--color-base);
   font-size: calc(1vw + 0.8rem);
   line-height: 1.4em;
   font-weight: 500;
@@ -55,7 +55,7 @@
 
 .social-icons {
   display: flex;
-  margin-left: -10px;
+  margin-left: -5px;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
