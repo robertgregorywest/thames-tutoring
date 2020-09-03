@@ -8,7 +8,7 @@ import SubjectAreasListing from '../components/SubjectAreasListing';
 import Testimonial from '../components/Testimonial';
 
 const Index = ({ data }) => {
-  const siteTitle = data.kontentItemHome.elements.site_title.value;
+  const title = data.kontentItemHome.elements.title.value;
   const vision = data.kontentItemHome.elements.company_vision_statement;
   const heroImage = data.kontentItemHome.elements.hero_image.value[0];
 
@@ -26,7 +26,7 @@ const Index = ({ data }) => {
   const subjectAreas = data.kontentItemHome.elements.subject_areas.value;
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={title}>
       <header className="page-head">
         <RichTextElement value={vision.value} />
       </header>
