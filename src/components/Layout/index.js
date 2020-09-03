@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import Footer from '../Footer';
 import '../../assets/scss/global.scss';
 import '../../assets/scss/variables.scss';
@@ -11,11 +11,25 @@ import logo from '../../assets/logos/logo.svg';
 const Layout = (props) => {
   const { title, children } = props;
   const [toggleNav, setToggleNav] = React.useState(false);
-  const titleTemplate = `${title} - %s`;
+  const data = useStaticQuery(graphql`
+    query SiteQuery {
+      kontentItemHome {
+        elements {
+          site_title {
+            value
+          }
+        }
+      }
+    }
+  `);
+  const siteTitle = data.kontentItemHome.elements.site_title.value;
+  const titleTemplate = `${siteTitle} - %s`;
+
   return (
     <div className={`site-wrapper ${toggleNav ? 'site-head-open' : ''}`}>
-      <Helmet defaultTitle={title} titleTemplate={titleTemplate}>
+      <Helmet defaultTitle={siteTitle} titleTemplate={titleTemplate}>
         <html lang="en" />
+        <title>{title}</title>
       </Helmet>
       <header className="site-head">
         <div className="site-head-container">
@@ -26,7 +40,7 @@ const Layout = (props) => {
                 alt="Thames Tutoring Logo"
                 className="site-head__logo-image"
               />
-              {title}
+              {siteTitle}
             </Link>
           </div>
           <nav className="site-head-right">

@@ -34,7 +34,7 @@ export default Courses;
 
 export const pageQuery = graphql`
   query CoursesQuery {
-    kontentItemArticle(system: { codename: { eq: "courses_98716ec" } }) {
+    kontentItemArticle(system: { codename: { eq: "courses_landing_page" } }) {
       elements {
         title {
           value
