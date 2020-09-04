@@ -23,7 +23,7 @@ const Courses = ({ data }) => {
         <RichTextElement value={intro.value} />
       </header>
 
-      <CourseListing featuredCourses={featuredCourses} />
+      <CourseListing title="Courses" featuredCourses={featuredCourses} />
 
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>

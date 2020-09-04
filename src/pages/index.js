@@ -35,7 +35,7 @@ const Index = ({ data }) => {
         <Image fluid={heroImage.fluid} alt={heroImage.description} />
       </figure>
 
-      <CourseListing featuredCourses={featuredCourses} />
+      <CourseListing title="Latest Courses" featuredCourses={featuredCourses} />
 
       <section className="flex-grid about">
         <div className="custom-shape-divider-top-1594982357">

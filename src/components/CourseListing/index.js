@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'gatsby-image';
 import './courseListing.scss';
 
-const CourseListing = ({ featuredCourses }) => (
+const CourseListing = ({ title, featuredCourses }) => (
   <div className="course-listing">
-    <h2 className="course-listing__title">Latest Courses</h2>
+    <h2 className="course-listing__title">{title}</h2>
     <div className="flex-grid-thirds">
       {featuredCourses &&
         featuredCourses.map((course) => (
@@ -22,6 +22,14 @@ const CourseListing = ({ featuredCourses }) => (
                   {course.elements.title.value}
                 </h3>
                 <p>{course.elements.summary.value}</p>
+                <p>
+                  {course.elements.dates.value.split('\n').map((item) => (
+                    <span key={item}>
+                      {item}
+                      <br />
+                    </span>
+                  ))}
+                </p>
                 <p>{course.elements.cost.value}</p>
               </div>
             </div>
