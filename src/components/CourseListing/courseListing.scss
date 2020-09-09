@@ -1,5 +1,6 @@
 .course-listing {
-  margin: 6vw var(--margin);
+  margin: 0;
+  padding: var(--margin);
 }
 
 .course-listing__card {
@@ -10,7 +11,8 @@
 }
 
 .course-listing__title {
-  text-align: center;
+  text-align: left;
+  margin-top: 0;
 }
 
 .course-listing__figure {
@@ -27,14 +29,14 @@
 }
 
 .course-listing__cta {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
-@media (max-width: 500px) {
+@media (min-width: 48em) {
   .course-listing__cta {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
   .course-listing__title {
-    text-align: left;
+    text-align: center;
   }
 }

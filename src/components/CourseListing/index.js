@@ -5,10 +5,10 @@ import './courseListing.scss';
 const CourseListing = ({ title, featuredCourses }) => (
   <div className="course-listing">
     <h2 className="course-listing__title">{title}</h2>
-    <div className="flex-grid-thirds">
+    <div className="grid grid--gutters grid--full large-grid--fit">
       {featuredCourses &&
         featuredCourses.map((course) => (
-          <div className="col course-listing__card">
+          <div className="grid-cell course-listing__card">
             <div className="course-listing__upper">
               <figure className="course-listing__figure">
                 <Image

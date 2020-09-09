@@ -20,6 +20,7 @@ const Courses = ({ data }) => {
   return (
     <Layout title={title}>
       <header className="page-head">
+        <h2>{title}</h2>
         <RichTextElement value={intro.value} />
       </header>
 

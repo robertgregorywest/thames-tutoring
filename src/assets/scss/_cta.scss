@@ -1,0 +1,24 @@
+.cta {
+  display: inline-block;
+  background-color: var(--color-tt-red);
+  padding: 0 15px;
+  line-height: 40px;
+  letter-spacing: 0.025em;
+  padding: 0 14px;
+  color: var(--color-bg);
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.15s ease;
+}
+
+.cta:hover,
+.cta-secondary:hover {
+  opacity: 0.75;
+}
+
+.cta-secondary:after {
+    content: "\279C";
+    padding-left: 6px;
+}

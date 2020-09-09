@@ -1,9 +1,11 @@
 .subject-areas-listing {
-  margin: 6vw var(--margin);
+  margin: 0;
+  padding: var(--margin);
 }
 
 .subject-areas-listing__title {
-  text-align: center;
+  text-align: left;
+  margin-top: 0;
 }
 
 .subject-areas-listing__subject-title {
@@ -11,8 +13,8 @@
   margin-bottom: 1rem;
 }
 
-@media (max-width: 500px) {
+@media (min-width: 48em) {
   .subject-areas-listing__title {
-    text-align: left;
+    text-align: center;
   }
 }
