@@ -67,6 +67,7 @@ const Contact = ({ data }) => {
                 type="text"
                 name="name"
                 className="contact__field-element"
+                required
                 onChange={handleChange}
               />
             </label>
@@ -78,6 +79,7 @@ const Contact = ({ data }) => {
                 type="email"
                 name="email"
                 className="contact__field-element"
+                required
                 onChange={handleChange}
               />
             </label>
@@ -89,6 +91,7 @@ const Contact = ({ data }) => {
                 type="subject"
                 name="subject"
                 className="contact__field-element"
+                required
                 onChange={handleChange}
               />
             </label>
@@ -99,6 +102,7 @@ const Contact = ({ data }) => {
               <textarea
                 name="message"
                 className="contact__field-element contact__textarea"
+                required
                 onChange={handleChange}
               />
             </label>
