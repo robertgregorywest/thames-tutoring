@@ -44,7 +44,7 @@ const Contact = ({ data }) => {
         <h2>{title}</h2>
         <RichTextElement value={intro.value} />
       </header>
-      <div>
+      <div className="contact">
         <form
           name="contact"
           method="post"
@@ -60,32 +60,54 @@ const Contact = ({ data }) => {
               <input name="bot-field" onChange={handleChange} />
             </label>
           </p>
-          <p>
+          <div className="contact__field">
             <label htmlFor="name">
               Your Name:{' '}
-              <input type="text" name="name" onChange={handleChange} />
+              <input
+                type="text"
+                name="name"
+                className="contact__field-element"
+                onChange={handleChange}
+              />
             </label>
-          </p>
-          <p>
+          </div>
+          <div className="contact__field">
             <label htmlFor="email">
               Your Email:{' '}
-              <input type="email" name="email" onChange={handleChange} />
+              <input
+                type="email"
+                name="email"
+                className="contact__field-element"
+                onChange={handleChange}
+              />
             </label>
-          </p>
-          <p>
+          </div>
+          <div className="contact__field">
             <label htmlFor="subject">
               Subject:{' '}
-              <input type="subject" name="subject" onChange={handleChange} />
+              <input
+                type="subject"
+                name="subject"
+                className="contact__field-element"
+                onChange={handleChange}
+              />
             </label>
-          </p>
-          <p>
+          </div>
+          <div className="contact__field">
             <label htmlFor="message">
-              Message: <textarea name="message" onChange={handleChange} />
+              Message:{' '}
+              <textarea
+                name="message"
+                className="contact__field-element contact__textarea"
+                onChange={handleChange}
+              />
             </label>
-          </p>
-          <p>
-            <button type="submit">Send</button>
-          </p>
+          </div>
+          <div>
+            <button type="submit" className="contact__button">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     </Layout>

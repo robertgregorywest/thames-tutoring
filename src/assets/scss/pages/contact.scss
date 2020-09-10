@@ -1,0 +1,50 @@
+.contact {
+  margin: 0 auto;
+  max-width: 48em;
+  padding: 0 var(--margin);
+}
+
+.contact__field {
+  position: relative;
+}
+
+.contact__field-element {
+  width: 100%;
+  margin: 1em 0 2em;
+  padding: 0.75em;
+  line-height: normal;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.contact__textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact__field-element:focus {
+  outline-color: var(--color-base);
+}
+
+.contact__button {
+  background-color: var(--color-tt-red);
+  padding: 0 15px;
+  line-height: 40px;
+  letter-spacing: 0.025em;
+  font-weight: 700;
+  padding: 0 14px;
+  color: var(--color-bg);
+  white-space: nowrap;
+  border-radius: var(--radius);
+  border-color: var(--color-tt-red);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.contact__button:hover {
+  opacity: 0.75;
+}
+
+.contact__button:focus {
+  outline-color: var(--color-tt-red);
+}
