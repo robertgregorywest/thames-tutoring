@@ -1,5 +1,6 @@
 import React from 'react';
 import './subjectAreasListing.scss';
+import abacus from '../../assets/icons/abacus.svg';
 
 const SubjectAreasListing = ({ subjectAreas }) => (
   <div className="subject-areas-listing">
@@ -8,6 +9,9 @@ const SubjectAreasListing = ({ subjectAreas }) => (
       {subjectAreas &&
         subjectAreas.map((subject) => (
           <div className="grid-cell">
+            <div className="subject-areas-listing__icon">
+              <img src={abacus} width="60px" height="60px" alt="" />
+            </div>
             <h3 className="subject-areas-listing__subject-title">
               {subject.elements.title.value}
             </h3>

@@ -18,3 +18,15 @@
     text-align: center;
   }
 }
+
+.subject-areas-listing__icon {
+  margin: 2em 0;
+  flex-shrink: 0;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-tt-red);
+}
