@@ -1,10 +1,10 @@
 .subject-areas-listing {
   margin: 0;
   padding: var(--margin);
+  text-align: center;
 }
 
 .subject-areas-listing__title {
-  text-align: left;
   margin-top: 0;
 }
 
@@ -13,14 +13,8 @@
   margin-bottom: 1rem;
 }
 
-@media (min-width: 48em) {
-  .subject-areas-listing__title {
-    text-align: center;
-  }
-}
-
 .subject-areas-listing__icon {
-  margin: 2em 0;
+  margin: 2em auto;
   flex-shrink: 0;
   width: 6.5rem;
   height: 6.5rem;
@@ -28,5 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-tt-red);
+  background-color: var(--color-tt-red);
+  background: linear-gradient(45deg, var(--color-tt-red) 20%, var(--color-tt-orange) 80%);
 }

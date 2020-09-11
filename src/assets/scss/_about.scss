@@ -2,7 +2,8 @@
   position: relative;
   margin: 0;
   padding: 175px var(--margin) 125px var(--margin);
-  background-image: linear-gradient(75deg, var(--color-tt-green), var(--color-tt-yellow));
+  background-image: linear-gradient(45deg,var(--color-tt-red),var(--color-tt-orange));
+  color: var(--color-bg);
 }
 
 .about__title {
