@@ -4,6 +4,7 @@ import Image from 'gatsby-image';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
 import CourseListing from '../components/CourseListing';
+import AboutBlock from '../components/AboutBlock';
 import SubjectAreasListing from '../components/SubjectAreasListing';
 import Testimonial from '../components/Testimonial';
 
@@ -13,7 +14,7 @@ const Index = ({ data }) => {
   const heroImage = data.kontentItemHome.elements.hero_image.value[0];
 
   const aboutUsTitle = data.kontentItemHome.elements.about_us_title.value;
-  const aboutUsRichText = data.kontentItemHome.elements.about_us;
+  const aboutUsRichText = data.kontentItemHome.elements.about_us.value;
 
   const testimonial =
     data.kontentItemHome.elements.testimonial.value[0].elements.testimonial;
@@ -23,6 +24,9 @@ const Index = ({ data }) => {
 
   const featuredCourses = data.kontentItemHome.elements.featured_courses.value;
 
+  const showCourses =
+    Array.isArray(featuredCourses) && featuredCourses.length > 0;
+
   const subjectAreas = data.kontentItemHome.elements.subject_areas.value;
 
   return (
@@ -30,40 +34,17 @@ const Index = ({ data }) => {
       <header className="page-head">
         <RichTextElement value={vision.value} />
       </header>
-
       <figure className="width-full">
         <Image fluid={heroImage.fluid} alt={heroImage.description} />
       </figure>
-
-      <CourseListing title="Latest Courses" featuredCourses={featuredCourses} />
-
-      <section className="grid grid--full large-grid--fit about">
-        <div className="custom-shape-divider-top-1594982357">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-              d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z"
-              className="shape-fill"
-            />
-          </svg>
-        </div>
-        <div className="grid-cell">
-          <h2 className="about__title">{aboutUsTitle}</h2>
-        </div>
-        <div className="grid-cell about__text">
-          <RichTextElement value={aboutUsRichText.value} />
-        </div>
-        <div className="custom-shape-divider-bottom-1594916332">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-              d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
-              className="shape-fill"
-            />
-          </svg>
-        </div>
-      </section>
-
+      {showCourses && (
+        <CourseListing
+          title="Latest Courses"
+          featuredCourses={featuredCourses}
+        />
+      )}
+      <AboutBlock title={aboutUsTitle} richText={aboutUsRichText} />
       <SubjectAreasListing subjectAreas={subjectAreas} />
-
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );
