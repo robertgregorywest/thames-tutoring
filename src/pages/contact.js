@@ -3,7 +3,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { navigate } from 'gatsby-link';
-import { RichTextElement } from '@kentico/gatsby-kontent-components';
+import Header from '../components/Header';
 import Layout from '../components/Layout';
 import '../assets/scss/pages/contact.scss';
 
@@ -15,6 +15,8 @@ function encode(data) {
 
 const Contact = ({ data }) => {
   const title = data.kontentItemArticle.elements.title.value;
+  const description =
+    data.kontentItemArticle.elements.seo_metadata__meta_description.value;
   const intro = data.kontentItemArticle.elements.body;
 
   const [state, setState] = React.useState({});
@@ -39,11 +41,8 @@ const Contact = ({ data }) => {
   };
 
   return (
-    <Layout title={title}>
-      <header className="page-head">
-        <h2>{title}</h2>
-        <RichTextElement value={intro.value} />
-      </header>
+    <Layout title={title} description={description}>
+      <Header title={title} richText={intro} />
       <div className="contact">
         <form
           name="contact"
@@ -125,6 +124,12 @@ export const pageQuery = graphql`
     kontentItemArticle(system: { codename: { eq: "contact" } }) {
       elements {
         title {
+          value
+        }
+        seo_metadata__meta_title {
+          value
+        }
+        seo_metadata__meta_description {
           value
         }
         body {

@@ -9,7 +9,7 @@ import './hamburger.scss';
 import logo from '../../assets/logos/logo.svg';
 
 const Layout = (props) => {
-  const { title, children } = props;
+  const { title, description, children } = props;
   const [toggleNav, setToggleNav] = React.useState(false);
   const data = useStaticQuery(graphql`
     query SiteQuery {
@@ -30,6 +30,7 @@ const Layout = (props) => {
       <Helmet defaultTitle={siteTitle} titleTemplate={titleTemplate}>
         <html lang="en" />
         <title>{title}</title>
+        <meta name="description" content={description} />
       </Helmet>
       <header className="site-head">
         <div className="site-head-container">

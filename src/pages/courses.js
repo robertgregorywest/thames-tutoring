@@ -1,12 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
 import CourseListing from '../components/CourseListing';
 import Testimonial from '../components/Testimonial';
+import Header from '../components/Header';
 
 const Courses = ({ data }) => {
   const title = data.kontentItemArticle.elements.title.value;
+  const description =
+    data.kontentItemArticle.elements.seo_metadata__meta_description.value;
   const intro = data.kontentItemArticle.elements.body;
 
   const testimonial =
@@ -18,14 +20,9 @@ const Courses = ({ data }) => {
   const featuredCourses = data.allKontentItemCourse.nodes;
 
   return (
-    <Layout title={title}>
-      <header className="page-head">
-        <h2>{title}</h2>
-        <RichTextElement value={intro.value} />
-      </header>
-
+    <Layout title={title} description={description}>
+      <Header title={title} richText={intro} />
       <CourseListing title="Courses" featuredCourses={featuredCourses} />
-
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );
@@ -38,6 +35,12 @@ export const pageQuery = graphql`
     kontentItemArticle(system: { codename: { eq: "courses_landing_page" } }) {
       elements {
         title {
+          value
+        }
+        seo_metadata__meta_title {
+          value
+        }
+        seo_metadata__meta_description {
           value
         }
         body {

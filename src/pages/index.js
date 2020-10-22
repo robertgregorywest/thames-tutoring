@@ -1,14 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
-import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
+import Header from '../components/Header';
 import CourseListing from '../components/CourseListing';
 import AboutBlock from '../components/AboutBlock';
 import SubjectAreasListing from '../components/SubjectAreasListing';
 import Testimonial from '../components/Testimonial';
 
 const Index = ({ data }) => {
+  const metaTitle =
+    data.kontentItemHome.elements.seo_metadata__meta_title.value;
+  const description =
+    data.kontentItemHome.elements.seo_metadata__meta_description.value;
   const title = data.kontentItemHome.elements.title.value;
   const vision = data.kontentItemHome.elements.company_vision_statement;
   const heroImage = data.kontentItemHome.elements.hero_image.value[0];
@@ -30,10 +34,8 @@ const Index = ({ data }) => {
   const subjectAreas = data.kontentItemHome.elements.subject_areas.value;
 
   return (
-    <Layout title={title}>
-      <header className="page-head">
-        <RichTextElement value={vision.value} />
-      </header>
+    <Layout title={metaTitle} description={description}>
+      <Header title={title} richText={vision} />
       <figure className="width-full">
         <Image fluid={heroImage.fluid} alt={heroImage.description} />
       </figure>
@@ -44,7 +46,7 @@ const Index = ({ data }) => {
         />
       )}
       <AboutBlock title={aboutUsTitle} richText={aboutUsRichText} />
-      <SubjectAreasListing subjectAreas={subjectAreas} />
+      <SubjectAreasListing title="What We Cover" subjectAreas={subjectAreas} />
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );
@@ -56,10 +58,16 @@ export const pageQuery = graphql`
   query IndexQuery {
     kontentItemHome {
       elements {
+        title {
+          value
+        }
         site_title {
           value
         }
-        title {
+        seo_metadata__meta_title {
+          value
+        }
+        seo_metadata__meta_description {
           value
         }
         company_vision_statement {
@@ -148,6 +156,10 @@ export const pageQuery = graphql`
                 summary {
                   value
                 }
+              }
+              system {
+                codename
+                type
               }
             }
           }

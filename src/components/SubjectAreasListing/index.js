@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import './subjectAreasListing.scss';
 import abacus from '../../assets/icons/abacus.svg';
 import flask from '../../assets/icons/flask.svg';
@@ -15,9 +16,9 @@ function getIcon(subjectArea) {
   }
 }
 
-const SubjectAreasListing = ({ subjectAreas }) => (
+const SubjectAreasListing = ({ title, subjectAreas }) => (
   <div className="subject-areas-listing">
-    <h2 className="subject-areas-listing__title">What We Cover</h2>
+    <h2 className="subject-areas-listing__title">{title}</h2>
     <div className="grid grid--gutters grid--full large-grid--fit">
       {subjectAreas &&
         subjectAreas.map((subject) => (
@@ -35,9 +36,12 @@ const SubjectAreasListing = ({ subjectAreas }) => (
             </h3>
             <p>{subject.elements.summary.value}</p>
             <p>
-              <a href="/" className="subject-areas-listing__link cta-secondary">
+              <Link
+                className="subject-areas-listing__link cta-secondary"
+                to={`/tuition/${subject.system.codename}`}
+              >
                 Learn more about {subject.elements.title.value}
-              </a>
+              </Link>
             </p>
           </div>
         ))}
