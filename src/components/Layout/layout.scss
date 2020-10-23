@@ -1,13 +1,11 @@
+@import "../../assets/scss/variables";
+
 // Wrapper
 
 .site-wrapper {
   min-height: 100vh;
   margin: auto;
 }
-
-// .site-main {
-//   padding: 0 1em 1em;
-// }
 
 // Site navigation
 
@@ -116,7 +114,7 @@
   padding: 28px 12px 12px 12px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: $breakpoint-large) {
   .nav-burger {
     display: block;
   }
@@ -197,4 +195,15 @@
   .site-head-open .nav-current {
     border-bottom: var(--color-base) 2px solid;
   }
+}
+
+.content-body {
+  width: unquote("min(85ch, 94%)");
+  margin: 0 auto;
+  padding: 2vw 0 4vw 0;
+}
+
+.content-body p {
+  font-size: 1.2rem;
+  line-height: 2.75rem;
 }

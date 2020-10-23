@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Footer from '../Footer';
 import '../../assets/scss/global.scss';
-import '../../assets/scss/variables.scss';
+import '../../assets/scss/styleVariables.scss';
 import './layout.scss';
 import './hamburger.scss';
 import logo from '../../assets/logos/logo.svg';

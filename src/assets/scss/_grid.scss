@@ -1,3 +1,5 @@
+@import "./variables";
+
 // Grid system from https://github.com/philipwalton/solved-by-flexbox
 
 .grid {
@@ -50,17 +52,17 @@
   flex: 0 0 100%;
 }
 .grid--1of2 > .grid-cell {
-  flex: 0 0 50%
+  flex: 0 0 50%;
 }
 .grid--1of3 > .grid-cell {
-  flex: 0 0 33.3333%
+  flex: 0 0 33.3333%;
 }
 .grid--1of4 > .grid-cell {
-  flex: 0 0 25%
+  flex: 0 0 25%;
 }
 
 /* Small to medium screens */
-@media (min-width: 24em) {
+@media (min-width: $breakpoint-small) {
   .small-grid--fit > .grid-cell {
     flex: 1;
   }
@@ -68,18 +70,18 @@
     flex: 0 0 100%;
   }
   .small-grid--1of2 > .grid-cell {
-    flex: 0 0 50%
+    flex: 0 0 50%;
   }
   .small-grid--1of3 > .grid-cell {
-    flex: 0 0 33.3333%
+    flex: 0 0 33.3333%;
   }
   .small-grid--1of4 > .grid-cell {
-    flex: 0 0 25%
+    flex: 0 0 25%;
   }
 }
 
 /* Large screens */
-@media (min-width: 48em) {
+@media (min-width: $breakpoint-large) {
   .large-grid--fit > .grid-cell {
     flex: 1;
   }
@@ -87,12 +89,12 @@
     flex: 0 0 100%;
   }
   .large-grid--1of2 > .grid-cell {
-    flex: 0 0 50%
+    flex: 0 0 50%;
   }
   .large-grid--1of3 > .grid-cell {
-    flex: 0 0 33.3333%
+    flex: 0 0 33.3333%;
   }
   .large-grid--1of4 > .grid-cell {
-    flex: 0 0 25%
+    flex: 0 0 25%;
   }
 }

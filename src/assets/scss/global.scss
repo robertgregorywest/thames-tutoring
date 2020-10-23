@@ -2,6 +2,7 @@
 @import "./grid";
 @import "./header";
 @import "./cta";
+@import "./variables";
 
 *,
 *::after,
@@ -41,7 +42,7 @@ h1 {
   font-size: 2.7rem;
   font-weight: 800;
 }
-@media (min-width: 48em) {
+@media (min-width: $breakpoint-large) {
   h1 {
     font-size: 5.7rem;
   }
@@ -51,7 +52,7 @@ h2 {
   margin: 1.5em 0 0.5em 0;
   font-size: 1.5rem;
 }
-@media (min-width: 48em) {
+@media (min-width: $breakpoint-large) {
   h2 {
     font-size: 2.5rem;
   }
@@ -61,7 +62,7 @@ h3 {
   margin: 1.5em 0 1em 0;
   font-size: 1.1rem;
 }
-@media (min-width: 48rem) {
+@media (min-width: $breakpoint-large) {
   h3 {
     font-size: 1.5rem;
   }
@@ -93,8 +94,15 @@ a {
 }
 
 .image {
+  display: block;
   max-width: 100%;
   width: 100%;
+  height: 100%;
+  margin: 4vw 0;
+}
+
+.image-card {
+  margin: 5vw 0;
 }
 
 .width-full {
