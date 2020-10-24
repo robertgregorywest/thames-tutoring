@@ -105,6 +105,15 @@ a {
   margin: 5vw 0;
 }
 
+.width-wide {
+  position: relative;
+  width: 74vw;
+  min-width: 100%;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  transform: translateX(calc(50vw - 50%));
+}
+
 .width-full {
   position: relative;
   width: 94vw;

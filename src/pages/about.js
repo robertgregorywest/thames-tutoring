@@ -27,7 +27,7 @@ const About = ({ data }) => {
           value={body.value}
           images={body.images}
           resolveImage={(image) => (
-            <figure className="width-full image-card">
+            <figure className="width-wide image-card">
               <Image
                 fluid={image.fluid}
                 title={image.description}
