@@ -81,7 +81,7 @@
 }
 
 /* Large screens */
-@media (min-width: $breakpoint-large) {
+@media (min-width: $breakpoint-medium) {
   .large-grid--fit > .grid-cell {
     flex: 1;
   }

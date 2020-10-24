@@ -43,8 +43,9 @@ const Contact = ({ data }) => {
   return (
     <Layout title={title} description={description}>
       <Header title={title} richText={intro} />
-      <div className="contact">
+      <div className="content-body">
         <form
+          className="contact"
           name="contact"
           method="post"
           action="/thanks/"

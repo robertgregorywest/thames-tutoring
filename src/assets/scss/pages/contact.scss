@@ -1,9 +1,7 @@
 @import "../variables";
 
 .contact {
-  margin: 0 auto;
-  max-width: $breakpoint-large;
-  padding: 0 var(--margin);
+  margin: 0;
 }
 
 .contact__field {
