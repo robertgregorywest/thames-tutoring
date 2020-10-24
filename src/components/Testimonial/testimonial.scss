@@ -3,8 +3,8 @@
 .testimonial {
   position: relative;
   width: 100%;
-  padding-top: 121px;
-  padding-bottom: 121px;
+  padding-top: 120px;
+  padding-bottom: 120px;
   background-image: linear-gradient(120deg, var(--color-tt-orange), var(--color-tt-red));
   color: var(--color-bg);
 }
@@ -27,7 +27,7 @@
 
 .testimonial__divider-bottom {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
   overflow: hidden;
