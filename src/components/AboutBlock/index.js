@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import './aboutBlock.scss';
 
@@ -17,6 +18,11 @@ const AboutBlock = ({ title, richText }) => (
     </div>
     <div className="grid-cell about__text">
       <RichTextElement value={richText} />
+      <p>
+        <Link to="/about" className="about__link cta-secondary">
+          Read more about our approach
+        </Link>
+      </p>
     </div>
     <div className="custom-shape-divider-bottom-1594916332">
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none">

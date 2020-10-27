@@ -22,6 +22,10 @@
   line-height: 2.5rem;
 }
 
+.about__link {
+  color: var(--color-bg);
+}
+
 @media (max-width: $breakpoint-medium) {
   .about__text {
     font-size: 1.1rem;
