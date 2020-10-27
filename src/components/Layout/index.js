@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-undef */
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Footer from '../Footer';
@@ -10,7 +11,10 @@ import logo from '../../assets/logos/logo.svg';
 
 const Layout = (props) => {
   const { title, description, children } = props;
-  const [toggleNav, setToggleNav] = React.useState(false);
+
+  const [toggleNav, setToggleNav] = useState(false);
+  const [subnavIsVisible, setSubnavIsVisible] = useState(false);
+
   const data = useStaticQuery(graphql`
     query SiteQuery {
       kontentItemHome {
@@ -22,6 +26,7 @@ const Layout = (props) => {
       }
     }
   `);
+
   const siteTitle = data.kontentItemHome.elements.site_title.value;
   const titleTemplate = `${siteTitle} - %s`;
 
@@ -57,9 +62,13 @@ const Layout = (props) => {
                 </Link>
               </li>
               <li role="menuitem" className="site-head__nav-item">
-                <Link to="/tuition" className="site-head__link">
+                <a
+                  href="#"
+                  className="site-head__link"
+                  onClick={() => setSubnavIsVisible(!subnavIsVisible)}
+                >
                   Tuition
-                </Link>
+                </a>
               </li>
               <li role="menuitem" className="site-head__nav-item">
                 <Link to="/courses" className="site-head__link">
@@ -80,6 +89,23 @@ const Layout = (props) => {
                 </Link>
               </li>
             </ul>
+            <div
+              className="site-head-dropdown"
+              onMouseLeave={() => {
+                setSubnavIsVisible(!subnavIsVisible);
+              }}
+              hidden={!subnavIsVisible}
+            >
+              <Link to="/science_tuition" className="site-head__link">
+                Science Tuition
+              </Link>
+              <Link to="/maths_tuition" className="site-head__link">
+                Maths Tuition
+              </Link>
+              <Link to="/english_tuition" className="site-head__link">
+                English Tuition
+              </Link>
+            </div>
           </nav>
           <a
             className="nav-burger"

@@ -142,6 +142,9 @@ export const pageQuery = graphql`
                   }
                 }
               }
+              system {
+                codename
+              }
             }
           }
         }

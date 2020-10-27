@@ -20,6 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 75px;
 }
 
 .site-head__nav {
@@ -93,7 +94,7 @@
   display: block;
   margin: 0 15px 0 0;
   width: auto;
-  height: 75px;
+  height: var(--site-header-height);
 }
 
 .site-head-right {
@@ -196,6 +197,26 @@
     border-bottom: var(--color-base) 2px solid;
   }
 }
+
+// Dropdown nav
+
+.site-head-dropdown {
+  position: absolute;
+  display: inline-block;
+  top: calc(var(--site-header-height) - 30px);
+  left: 0px;
+  width: 100%;
+  background-color: var(--color-bg);
+  padding: 2em;
+  border-radius: var(--radius);
+  box-shadow: var(--cardShadowXLarge);
+}
+
+.site-head-dropdown[hidden] {
+  visibility: hidden;
+}
+
+// Content pages
 
 .content-body {
   width: unquote("min(85ch, 94%)");
