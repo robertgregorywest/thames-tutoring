@@ -115,6 +115,10 @@
   padding: 28px 12px 12px 12px;
 }
 
+.mobile-nav {
+  display: none;
+}
+
 @media (max-width: $breakpoint-medium) {
   .nav-burger {
     display: block;
@@ -169,7 +173,7 @@
   }
 
   .site-head-open {
-    background: rgba(255, 255, 255, 1);
+    background: var(--color-mobile-nav);
     transition: background 0.5s ease-out;
     transition-delay: 0.25;
     overflow: hidden;
@@ -196,6 +200,16 @@
   .site-head-open .nav-current {
     border-bottom: var(--color-base) 2px solid;
   }
+
+  .mobile-nav {
+    display: flex;
+  }
+
+  .site-head-open .mobile-nav {
+    z-index: 9999;
+    height: auto;
+    transition: height 0.2s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+  }
 }
 
 // Dropdown nav
@@ -206,7 +220,7 @@
   top: calc(var(--site-header-height) - 30px);
   left: 0px;
   width: 100%;
-  background-color: var(--color-bg);
+  background-color: var(--color-mobile-nav);
   padding: 2em;
   border-radius: var(--radius);
   box-shadow: var(--cardShadowXLarge);
@@ -214,6 +228,26 @@
 
 .site-head-dropdown[hidden] {
   visibility: hidden;
+}
+
+@media (max-width: $breakpoint-medium) {
+  .site-head-dropdown {
+    position: relative;
+    display: flex;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .site-head__dropdown-toggle {
+    display: none;
+  }
 }
 
 // Content pages

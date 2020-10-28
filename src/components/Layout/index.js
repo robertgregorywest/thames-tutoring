@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import MenuItem from './menuItem';
+import Hamburger from './hamburger';
 import Footer from '../Footer';
 import '../../assets/scss/global.scss';
 import '../../assets/scss/styleVariables.scss';
@@ -12,7 +14,7 @@ import logo from '../../assets/logos/logo.svg';
 const Layout = (props) => {
   const { title, description, children } = props;
 
-  const [toggleNav, setToggleNav] = useState(false);
+  const [navIsVisible, setnavIsVisible] = useState(false);
   const [subnavIsVisible, setSubnavIsVisible] = useState(false);
 
   const data = useStaticQuery(graphql`
@@ -27,11 +29,16 @@ const Layout = (props) => {
     }
   `);
 
+  const toggle = () => {
+    setnavIsVisible(!navIsVisible);
+    setSubnavIsVisible(!navIsVisible);
+  };
+
   const siteTitle = data.kontentItemHome.elements.site_title.value;
   const titleTemplate = `${siteTitle} - %s`;
 
   return (
-    <div className={`site-wrapper ${toggleNav ? 'site-head-open' : ''}`}>
+    <div className={`site-wrapper${navIsVisible ? ' site-head-open' : ''}`}>
       <Helmet defaultTitle={siteTitle} titleTemplate={titleTemplate}>
         <html lang="en" />
         <title>{title}</title>
@@ -51,79 +58,45 @@ const Layout = (props) => {
           </div>
           <nav className="site-head-right">
             <ul className="site-head__nav" role="menu">
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/" className="site-head__link nav-current">
-                  Home
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/about" className="site-head__link">
-                  About
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <a
-                  href="#"
-                  className="site-head__link"
-                  onClick={() => setSubnavIsVisible(!subnavIsVisible)}
+              <MenuItem to="/" text="Home" />
+              <MenuItem to="/about" text="About" />
+              <MenuItem
+                text="Tuition"
+                linkClassName="site-head__dropdown-toggle"
+                onClickHandler={() => setSubnavIsVisible(!subnavIsVisible)}
+              >
+                <ul
+                  className="site-head-dropdown"
+                  onMouseLeave={() => {
+                    setSubnavIsVisible(false);
+                  }}
+                  hidden={!subnavIsVisible}
                 >
-                  Tuition
-                </a>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/courses" className="site-head__link">
-                  Courses
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/blog" className="site-head__link">
-                  Blog
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link
-                  to="/contact"
-                  className="site-head__link site-head__link--contact"
-                >
-                  Contact
-                </Link>
-              </li>
+                  <MenuItem to="/science_tuition" text="Science Tuition" />
+                  <MenuItem to="/maths_tuition" text="Maths Tuition" />
+                  <MenuItem to="/english_tuition" text="English Tuition" />
+                </ul>
+              </MenuItem>
+              <MenuItem to="/courses" text="Courses" />
+              <MenuItem to="/blog" text="Blog" />
+              <MenuItem
+                to="/contact"
+                text="Contact"
+                linkClassName="site-head__link--contact"
+              />
             </ul>
-            <div
-              className="site-head-dropdown"
-              onMouseLeave={() => {
-                setSubnavIsVisible(!subnavIsVisible);
-              }}
-              hidden={!subnavIsVisible}
-            >
-              <Link to="/science_tuition" className="site-head__link">
-                Science Tuition
-              </Link>
-              <Link to="/maths_tuition" className="site-head__link">
-                Maths Tuition
-              </Link>
-              <Link to="/english_tuition" className="site-head__link">
-                English Tuition
-              </Link>
-            </div>
           </nav>
-          <a
-            className="nav-burger"
-            href="#"
-            onClick={() => setToggleNav(!toggleNav)}
-          >
-            <div
-              className="hamburger hamburger--collapse"
-              aria-label="Menu"
-              role="button"
-              aria-controls="navigation"
-            >
-              <div className="hamburger-box">
-                <div className="hamburger-inner" />
-              </div>
-            </div>
-          </a>
+          <Hamburger onClickHandler={toggle} />
         </div>
+        <nav className="mobile-nav">
+          <ul className="site-head__nav" role="menu">
+            <li role="menuitem" className="site-head__nav-item">
+              <Link to="/" className="site-head__link nav-current">
+                Home
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </header>
       <main className="site-main">{children}</main>
       <Footer />
