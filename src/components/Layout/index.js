@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import MenuItem from './menuItem';
+import MenuItemDropdown from './menuItemDropdown';
 import Hamburger from './hamburger';
 import Footer from '../Footer';
 import '../../assets/scss/global.scss';
@@ -29,11 +30,6 @@ const Layout = (props) => {
     }
   `);
 
-  const toggle = () => {
-    setnavIsVisible(!navIsVisible);
-    setSubnavIsVisible(!navIsVisible);
-  };
-
   const siteTitle = data.kontentItemHome.elements.site_title.value;
   const titleTemplate = `${siteTitle} - %s`;
 
@@ -50,7 +46,7 @@ const Layout = (props) => {
             <Link className="site-head__logo" to="/">
               <img
                 src={logo}
-                alt="Thames Tutoring Logo"
+                alt={siteTitle}
                 className="site-head__logo-image"
               />
               {siteTitle}
@@ -62,20 +58,34 @@ const Layout = (props) => {
               <MenuItem to="/about" text="About" />
               <MenuItem
                 text="Tuition"
-                linkClassName="site-head__dropdown-toggle"
                 onClickHandler={() => setSubnavIsVisible(!subnavIsVisible)}
               >
-                <ul
-                  className="site-head-dropdown"
-                  onMouseLeave={() => {
-                    setSubnavIsVisible(false);
-                  }}
-                  hidden={!subnavIsVisible}
+                <div
+                  className={`menu-dropdown${
+                    subnavIsVisible ? ' menu-dropdown--open' : ''
+                  }`}
                 >
-                  <MenuItem to="/science_tuition" text="Science Tuition" />
-                  <MenuItem to="/maths_tuition" text="Maths Tuition" />
-                  <MenuItem to="/english_tuition" text="English Tuition" />
-                </ul>
+                  <ul
+                    className="menu-dropdown__list"
+                    onMouseLeave={() => {
+                      setSubnavIsVisible(false);
+                    }}
+                    hidden={!subnavIsVisible}
+                  >
+                    <MenuItemDropdown
+                      to="/science_tuition"
+                      text="Science Tuition"
+                    />
+                    <MenuItemDropdown
+                      to="/maths_tuition"
+                      text="Maths Tuition"
+                    />
+                    <MenuItemDropdown
+                      to="/english_tuition"
+                      text="English Tuition"
+                    />
+                  </ul>
+                </div>
               </MenuItem>
               <MenuItem to="/courses" text="Courses" />
               <MenuItem to="/blog" text="Blog" />
@@ -86,17 +96,26 @@ const Layout = (props) => {
               />
             </ul>
           </nav>
-          <Hamburger onClickHandler={toggle} />
+          <Hamburger onClickHandler={() => setnavIsVisible(!navIsVisible)} />
         </div>
-        <nav className="mobile-nav">
-          <ul className="site-head__nav" role="menu">
-            <li role="menuitem" className="site-head__nav-item">
-              <Link to="/" className="site-head__link nav-current">
-                Home
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="mobile-nav-container">
+          <nav className="mobile-nav">
+            <ul className="mobile-nav__list" role="menu">
+              <MenuItem to="/" text="Home" />
+              <MenuItem to="/about" text="About" />
+              <MenuItem to="/science_tuition" text="Science Tuition" />
+              <MenuItem to="/maths_tuition" text="Maths Tuition" />
+              <MenuItem to="/english_tuition" text="English Tuition" />
+              <MenuItem to="/courses" text="Courses" />
+              <MenuItem to="/blog" text="Blog" />
+              <MenuItem
+                to="/contact"
+                text="Contact"
+                linkClassName="site-head__link--contact"
+              />
+            </ul>
+          </nav>
+        </div>
       </header>
       <main className="site-main">{children}</main>
       <Footer />

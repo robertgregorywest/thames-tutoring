@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
 const MenuItem = ({ to, text, onClickHandler, linkClassName, children }) => {
   let link;
@@ -7,7 +8,7 @@ const MenuItem = ({ to, text, onClickHandler, linkClassName, children }) => {
     link = (
       <a
         href="#"
-        className={`site-head__link${linkClassName ? ` ${linkClassName}` : ''}`}
+        className={`site-head__link ${linkClassName}`}
         onClick={onClickHandler}
       >
         {text}
@@ -15,10 +16,7 @@ const MenuItem = ({ to, text, onClickHandler, linkClassName, children }) => {
     );
   } else {
     link = (
-      <Link
-        to={to}
-        className={`site-head__link${linkClassName ? ` ${linkClassName}` : ''}`}
-      >
+      <Link to={to} className={`site-head__link ${linkClassName}`}>
         {text}
       </Link>
     );
@@ -29,6 +27,16 @@ const MenuItem = ({ to, text, onClickHandler, linkClassName, children }) => {
       {children}
     </li>
   );
+};
+
+MenuItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  linkClassName: PropTypes.string,
+};
+
+MenuItem.defaultProps = {
+  linkClassName: '',
 };
 
 export default MenuItem;
