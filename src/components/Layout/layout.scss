@@ -155,7 +155,7 @@
   }
 
   .site-head-open {
-    background-color: var(--color-mobile-nav);
+    background-color: var(--color-bg-overlay);
     transition: background-color 0.5s ease-out;
     transition-delay: 0.25;
     overflow: hidden;
@@ -208,13 +208,12 @@
 // Dropdown nav
 
 .menu-dropdown {
-  --siteMenuWidth: 750px;
+  --siteMenuWidth: 740px;
   position: absolute;
   display: block;
-  top: calc(var(--site-header-height) - 10px);
+  top: calc(var(--site-header-height) - 15px);
   right: 0;
   width: var(--siteMenuWidth);
-  height: 500px;
   opacity: 0;
   perspective: 2000px;
   transition-property: opacity;
@@ -232,11 +231,10 @@
   top: 0;
   left: 50%;
   width: var(--siteMenuWidth);
-  height: 300px;
-  padding: 0;
+  padding: 10px;
   --siteMenuOffset: 0;
   --siteMenuRotateX: 0;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-overlay);
   border-radius: var(--radius);
   box-shadow: var(--cardShadowXLarge);
   transform: translateX(-50%) rotateX(var(--siteMenuRotateX));
@@ -253,6 +251,8 @@
 
 .menu-dropdown__nav-item {
   display: block;
+  margin-top: 1em;
+  width: 240px;
 }
 
 .menu-dropdown__container {
@@ -262,8 +262,8 @@
 
 .menu-dropdown__icon {
   margin: 0;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -273,12 +273,15 @@
 }
 
 .menu-dropdown__text {
+  margin-left: 1em;
   flex: 1;
 }
 
 .menu-dropdown__summary {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: normal;
+  line-height: 1.5em;
+  margin-top: 0.5em;
 }
 
 @media (max-width: $breakpoint-medium) {

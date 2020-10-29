@@ -16,18 +16,16 @@ function getIcon(subjectArea) {
   }
 }
 
-const MenuItemDropdown = ({ to, text }) => (
+const MenuItemDropdown = ({ to, title, text }) => (
   <li role="menuitem" className="menu-dropdown__nav-item">
     <Link to={to} className="site-head__link">
       <div className="menu-dropdown__container">
         <div className="menu-dropdown__icon">
-          <img src={getIcon(text)} width="25px" height="25px" alt={text} />
+          <img src={getIcon(title)} width="20px" height="20px" alt={text} />
         </div>
         <div className="menu-dropdown__text">
-          <span>{text}</span>
-          <p className="menu-dropdown__summary">
-            We provide 1-2-1 and small group tuition in Maths for all abilities.
-          </p>
+          <span>{title}</span>
+          <p className="menu-dropdown__summary">{text}</p>
         </div>
       </div>
     </Link>
@@ -36,6 +34,7 @@ const MenuItemDropdown = ({ to, text }) => (
 
 MenuItemDropdown.propTypes = {
   to: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 

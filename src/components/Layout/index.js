@@ -74,15 +74,18 @@ const Layout = (props) => {
                   >
                     <MenuItemDropdown
                       to="/science_tuition"
-                      text="Science Tuition"
+                      title="Science Tuition"
+                      text="We provide 1-2-1 and small group tuition in Maths for all abilities."
                     />
                     <MenuItemDropdown
                       to="/maths_tuition"
-                      text="Maths Tuition"
+                      title="Maths Tuition"
+                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
                     />
                     <MenuItemDropdown
                       to="/english_tuition"
-                      text="English Tuition"
+                      title="English Tuition"
+                      text="Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit"
                     />
                   </ul>
                 </div>
