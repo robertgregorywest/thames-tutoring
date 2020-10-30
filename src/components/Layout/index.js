@@ -1,6 +1,10 @@
-import React from 'react';
+/* eslint-disable no-undef */
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import MenuItem from './menuItem';
+import MenuItemDropdown from './menuItemDropdown';
+import Hamburger from './hamburger';
 import Footer from '../Footer';
 import '../../assets/scss/global.scss';
 import '../../assets/scss/styleVariables.scss';
@@ -10,7 +14,10 @@ import logo from '../../assets/logos/logo.svg';
 
 const Layout = (props) => {
   const { title, description, children } = props;
-  const [toggleNav, setToggleNav] = React.useState(false);
+
+  const [navIsVisible, setnavIsVisible] = useState(false);
+  const [subnavIsVisible, setSubnavIsVisible] = useState(false);
+
   const data = useStaticQuery(graphql`
     query SiteQuery {
       kontentItemHome {
@@ -22,11 +29,12 @@ const Layout = (props) => {
       }
     }
   `);
+
   const siteTitle = data.kontentItemHome.elements.site_title.value;
   const titleTemplate = `${siteTitle} - %s`;
 
   return (
-    <div className={`site-wrapper ${toggleNav ? 'site-head-open' : ''}`}>
+    <div className={`site-wrapper${navIsVisible ? ' site-head-open' : ''}`}>
       <Helmet defaultTitle={siteTitle} titleTemplate={titleTemplate}>
         <html lang="en" />
         <title>{title}</title>
@@ -38,7 +46,7 @@ const Layout = (props) => {
             <Link className="site-head__logo" to="/">
               <img
                 src={logo}
-                alt="Thames Tutoring Logo"
+                alt={siteTitle}
                 className="site-head__logo-image"
               />
               {siteTitle}
@@ -46,57 +54,71 @@ const Layout = (props) => {
           </div>
           <nav className="site-head-right">
             <ul className="site-head__nav" role="menu">
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/" className="site-head__link nav-current">
-                  Home
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/about" className="site-head__link">
-                  About
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/tuition" className="site-head__link">
-                  Tuition
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/courses" className="site-head__link">
-                  Courses
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link to="/blog" className="site-head__link">
-                  Blog
-                </Link>
-              </li>
-              <li role="menuitem" className="site-head__nav-item">
-                <Link
-                  to="/contact"
-                  className="site-head__link site-head__link--contact"
+              <MenuItem to="/" text="Home" />
+              <MenuItem to="/about" text="About" />
+              <MenuItem
+                text="Tuition"
+                onClickHandler={() => setSubnavIsVisible(!subnavIsVisible)}
+              >
+                <div
+                  className={`menu-dropdown${
+                    subnavIsVisible ? ' menu-dropdown--open' : ''
+                  }`}
                 >
-                  Contact
-                </Link>
-              </li>
+                  <div className="menu-dropdown__arrow" />
+                  <ul
+                    className="menu-dropdown__list"
+                    onMouseLeave={() => {
+                      setSubnavIsVisible(false);
+                    }}
+                    hidden={!subnavIsVisible}
+                  >
+                    <MenuItemDropdown
+                      to="/science_tuition"
+                      title="Science Tuition"
+                      text="We provide 1-2-1 and small group tuition in Maths for all abilities."
+                    />
+                    <MenuItemDropdown
+                      to="/maths_tuition"
+                      title="Maths Tuition"
+                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
+                    />
+                    <MenuItemDropdown
+                      to="/english_tuition"
+                      title="English Tuition"
+                      text="Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit"
+                    />
+                  </ul>
+                </div>
+              </MenuItem>
+              <MenuItem to="/courses" text="Courses" />
+              <MenuItem to="/blog" text="Blog" />
+              <MenuItem
+                to="/contact"
+                text="Contact"
+                linkClassName="site-head__link--contact"
+              />
             </ul>
           </nav>
-          <a
-            className="nav-burger"
-            href="#"
-            onClick={() => setToggleNav(!toggleNav)}
-          >
-            <div
-              className="hamburger hamburger--collapse"
-              aria-label="Menu"
-              role="button"
-              aria-controls="navigation"
-            >
-              <div className="hamburger-box">
-                <div className="hamburger-inner" />
-              </div>
-            </div>
-          </a>
+          <Hamburger onClickHandler={() => setnavIsVisible(!navIsVisible)} />
+        </div>
+        <div className="mobile-nav-container">
+          <nav className="mobile-nav">
+            <ul className="mobile-nav__list" role="menu">
+              <MenuItem to="/" text="Home" />
+              <MenuItem to="/about" text="About" />
+              <MenuItem to="/science_tuition" text="Science Tuition" />
+              <MenuItem to="/maths_tuition" text="Maths Tuition" />
+              <MenuItem to="/english_tuition" text="English Tuition" />
+              <MenuItem to="/courses" text="Courses" />
+              <MenuItem to="/blog" text="Blog" />
+              <MenuItem
+                to="/contact"
+                text="Contact"
+                linkClassName="site-head__link--contact"
+              />
+            </ul>
+          </nav>
         </div>
       </header>
       <main className="site-main">{children}</main>

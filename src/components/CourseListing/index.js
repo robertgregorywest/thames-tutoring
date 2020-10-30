@@ -8,7 +8,10 @@ const CourseListing = ({ title, featuredCourses }) => (
     <div className="grid grid--gutters grid--full large-grid--fit">
       {featuredCourses &&
         featuredCourses.map((course) => (
-          <div className="grid-cell course-listing__card">
+          <div
+            key={course.system.codename}
+            className="grid-cell course-listing__card"
+          >
             <div className="course-listing__upper">
               <figure className="course-listing__figure">
                 <Image

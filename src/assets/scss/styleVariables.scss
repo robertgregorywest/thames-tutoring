@@ -4,6 +4,7 @@
     --color-base: #131313;
     --color-border: #000;
     --color-bg: #f8f8f8;
+    --color-bg-overlay: #fdfdfd;
     --color-action: #f03949;
 
     --color-tt-green: #33b545;
@@ -28,4 +29,10 @@
     --height: 4rem;
     --margin: 5vw;
     --radius: 6px;
+
+    /* Menu */
+    --site-header-height: 75px;
+    --cardShadowXLarge: 0 50px 100px -20px rgba(50, 50, 93, 0.25), 0 30px 60px -30px rgba(0, 0, 0, 0.3);
+    --cardShadowXLargeMargin: 48px;
+    --siteMenuTransition: 250ms;
 }

@@ -6,7 +6,7 @@ import flask from '../../assets/icons/flask.svg';
 import book from '../../assets/icons/book-open.svg';
 
 function getIcon(subjectArea) {
-  switch (subjectArea) {
+  switch (subjectArea.toLowerCase()) {
     case 'science tuition':
       return flask;
     case 'english tuition':
@@ -22,13 +22,16 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
     <div className="grid grid--gutters grid--full large-grid--fit">
       {subjectAreas &&
         subjectAreas.map((subject) => (
-          <div className="grid-cell subject-areas-listing__cell">
+          <div
+            key={subject.system.codename}
+            className="grid-cell subject-areas-listing__cell"
+          >
             <div className="subject-areas-listing__icon">
               <img
-                src={getIcon(subject.elements.title.value.toLowerCase())}
+                src={getIcon(subject.elements.title.value)}
                 width="60px"
                 height="60px"
-                alt=""
+                alt={subject.elements.title.value}
               />
             </div>
             <h3 className="subject-areas-listing__subject-title">
