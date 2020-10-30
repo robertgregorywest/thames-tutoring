@@ -65,6 +65,7 @@ const Layout = (props) => {
                     subnavIsVisible ? ' menu-dropdown--open' : ''
                   }`}
                 >
+                  <div className="menu-dropdown__arrow" />
                   <ul
                     className="menu-dropdown__list"
                     onMouseLeave={() => {
