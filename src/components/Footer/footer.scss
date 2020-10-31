@@ -2,9 +2,8 @@
 
 .site-foot {
   display: flex;
-  padding: var(--margin);
   justify-content: space-between;
-  align-items: flex-start;
+  padding: var(--margin);
   margin: 0;
   color: var(--color-base);
   font-size: 1rem;
@@ -13,6 +12,9 @@
 
 @media (max-width: $breakpoint-medium) {
   .site-foot {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 10vw;
     padding: 6vw;
   }
 }
@@ -41,7 +43,7 @@
   font-size: calc(1vw + 0.8rem);
   line-height: 1.4em;
   font-weight: 500;
-  letter-spacing: 0em;
+  letter-spacing: 0;
   text-decoration: none;
 }
 
@@ -58,8 +60,8 @@
 .social-icons {
   display: flex;
   margin-left: -5px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .social-icons__wrapper {
@@ -67,7 +69,7 @@
   align-content: center;
   align-items: center;
   justify-content: center;
-  margin: 0 0.2rem 0 0;
+  margin: 0 0.2em 0 0;
   width: 35px;
   height: 35px;
 }
@@ -87,7 +89,7 @@
 }
 
 .site-foot-right-cell:not(:first-of-type) {
-  margin-left: 1em;
+  margin-left: 2em;
 }
 
 .site-foot-nav {
@@ -103,14 +105,6 @@
 
 .site-foot li {
   display: block;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1em 0;
   padding: 0;
-}
-
-@media (max-width: $breakpoint-medium) {
-  .site-foot {
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 10vw;
-  }
 }

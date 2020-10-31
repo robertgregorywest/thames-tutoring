@@ -85,14 +85,16 @@ const Footer = () => (
         </nav>
       </div>
       <div className="site-foot-right-cell">
-        <ul role="menu">
-          <li role="menuitem">
-            <Link to="/">Privacy Policy</Link>
-          </li>
-          <li role="menuitem">
-            <Link to="/">Safeguarding Policy</Link>
-          </li>
-        </ul>
+        <nav className="site-foot-nav">
+          <ul role="menu">
+            <li role="menuitem">
+              <Link to="/">Privacy Policy</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/">Safeguarding Policy</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </footer>
