@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables";
+
 .site-foot {
   display: flex;
   padding: var(--margin);
@@ -9,9 +11,9 @@
   background-color: var(--color-bg);
 }
 
-@media (max-width: 850px) {
+@media (max-width: $breakpoint-medium) {
   .site-foot {
-      padding: 6vw;
+    padding: 6vw;
   }
 }
 
@@ -80,12 +82,12 @@
   margin: 0;
 }
 
-.site-foot-right-container {
-  display: flex;
+.site-foot-right-cell {
+  float: left;
 }
 
-.site-foot-right-container__col {
-  flex: 1;
+.site-foot-right-cell:not(:first-of-type) {
+  margin-left: 1em;
 }
 
 .site-foot-nav {
@@ -103,9 +105,10 @@
   display: block;
   margin: 0 0 1rem 0;
   padding: 0;
+  // white-space: nowrap;
 }
 
-@media (max-width: 850px) {
+@media (max-width: $breakpoint-medium) {
   .site-foot {
     flex-direction: column;
     justify-content: flex-start;

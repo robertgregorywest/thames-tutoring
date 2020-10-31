@@ -57,41 +57,42 @@ const Footer = () => (
       </div>
     </div>
     <div className="site-foot-right">
-      <div className="site-foot-right-container">
-        <div className="site-foot-right-container__col">
-          <nav className="site-foot-nav">
-            <ul role="menu">
-              <li role="menuitem">
-                <Link to="/">Home</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/about">About</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/tuition">Tuition</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/courses">Courses</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li role="menuitem">
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div className="site-foot-right-container__col">
+      <div className="site-foot-right-cell">
+        <nav className="site-foot-nav">
           <ul role="menu">
             <li role="menuitem">
-              <Link to="/">Privacy Policy</Link>
+              <Link to="/about">About</Link>
             </li>
             <li role="menuitem">
-              <Link to="/">Safeguarding Policy</Link>
+              <Link to="/science_tuition">Science Tuition</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/maths_tuition">Maths Tuition</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/english_tuition">English Tuition</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/courses">Courses</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
-        </div>
+        </nav>
+      </div>
+      <div className="site-foot-right-cell">
+        <ul role="menu">
+          <li role="menuitem">
+            <Link to="/">Privacy Policy</Link>
+          </li>
+          <li role="menuitem">
+            <Link to="/">Safeguarding Policy</Link>
+          </li>
+        </ul>
       </div>
     </div>
   </footer>
