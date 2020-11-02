@@ -1,0 +1,28 @@
+@import "../../assets/scss/variables";
+
+.costOption {
+  background-image: linear-gradient(120deg, var(--color-tt-orange), var(--color-tt-red));
+  padding: 2.5em;
+  margin: 0;
+  border-radius: 10px;
+  color: var(--color-bg);
+}
+
+p.costOption__title {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+p.costOption__cost {
+  font-size: 2em;
+  font-weight: var(--font-bold);
+}
+
+p.costOption__cta {
+  margin-bottom: 0;
+  font-size: 1.5em;
+}
+
+.costOption__link {
+  color: var(--color-bg);
+}

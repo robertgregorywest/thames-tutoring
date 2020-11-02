@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import './subjectAreasListing.scss';
 import abacus from '../../assets/icons/abacus.svg';
 import flask from '../../assets/icons/flask.svg';
@@ -37,7 +38,7 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
             <h3 className="subject-areas-listing__subject-title">
               {subject.elements.title.value}
             </h3>
-            <p>{subject.elements.summary.value}</p>
+            <RichTextElement value={subject.elements.summary.value} />
             <p>
               <Link
                 className="subject-areas-listing__link cta-secondary"

@@ -57,6 +57,7 @@ const Layout = (props) => {
               <MenuItem to="/" text="Home" />
               <MenuItem to="/about" text="About" />
               <MenuItem
+                to="#"
                 text="Tuition"
                 onClickHandler={() => setSubnavIsVisible(!subnavIsVisible)}
               >

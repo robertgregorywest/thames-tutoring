@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
+import LinkedItem from '../components/LinkedItem';
 import Testimonial from '../components/Testimonial';
 import Header from '../components/Header';
 
@@ -12,7 +12,7 @@ const ScienceTuition = ({ data }) => {
     data.kontentItemSubjectArea.elements.seo_metadata__meta_title.value;
   const metaDescription =
     data.kontentItemSubjectArea.elements.seo_metadata__meta_description.value;
-  // const summary = data.kontentItemSubjectArea.elements.summary;
+  const summary = data.kontentItemSubjectArea.elements.summary;
   const details = data.kontentItemSubjectArea.elements.details;
   const testimonial =
     data.kontentItemSubjectArea.elements.testimonial.value[0].elements
@@ -23,19 +23,13 @@ const ScienceTuition = ({ data }) => {
 
   return (
     <Layout title={metaTitle} description={metaDescription}>
-      <Header title={title} />
+      <Header title={title} richText={summary} />
       <div className="content-body">
         <RichTextElement
           value={details.value}
-          images={details.images}
-          resolveImage={(image) => (
-            <figure className="width-wide image-card">
-              <Image
-                fluid={image.fluid}
-                title={image.description}
-                alt={image.description}
-              />
-            </figure>
+          linkedItems={details.modular_content}
+          resolveLinkedItem={(linkedItem) => (
+            <LinkedItem linkedItem={linkedItem} />
           )}
         />
         <h2>Our Tutors</h2>
@@ -65,12 +59,55 @@ export const pageQuery = graphql`
         }
         details {
           value
-          images {
-            image_id
-            fluid(maxWidth: 1000) {
-              ...KontentAssetFluid
+          modular_content {
+            ... on kontent_item_listing_block {
+              id
+              elements {
+                items {
+                  value {
+                    ... on kontent_item_cost_option {
+                      id
+                      elements {
+                        title {
+                          value
+                        }
+                        cost {
+                          value
+                        }
+                      }
+                      system {
+                        codename
+                        type
+                      }
+                    }
+                  }
+                }
+                listing_title {
+                  value
+                }
+              }
+              system {
+                codename
+                type
+              }
             }
-            description
+            ... on kontent_item_call_to_action {
+              id
+              system {
+                codename
+                type
+              }
+              elements {
+                title {
+                  value
+                }
+                target_page {
+                  value {
+                    id
+                  }
+                }
+              }
+            }
           }
         }
         testimonial {

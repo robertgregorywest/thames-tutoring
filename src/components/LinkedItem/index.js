@@ -1,6 +1,6 @@
 import React from 'react';
 import Testimonial from '../Testimonial';
-import SubjectAreaListing from '../SubjectAreasListing';
+import ListingBlock from '../ListingBlock';
 
 const LinkedItem = ({ linkedItem }) => {
   const type = linkedItem.system.type;
@@ -16,9 +16,9 @@ const LinkedItem = ({ linkedItem }) => {
     }
     case 'listing_block': {
       return (
-        <SubjectAreaListing
+        <ListingBlock
           title={linkedItem.elements.listing_title.value}
-          subjectAreas={linkedItem.elements.items.value}
+          items={linkedItem.elements.items.value}
         />
       );
     }
