@@ -10,6 +10,7 @@ import '../../assets/scss/global.scss';
 import '../../assets/scss/styleVariables.scss';
 import './layout.scss';
 import './hamburger.scss';
+import './menuDropdown.scss';
 import logo from '../../assets/logos/logo.svg';
 
 const Layout = (props) => {

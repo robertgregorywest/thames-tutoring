@@ -1,31 +1,18 @@
 import React from 'react';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
+import ShapeSection from '../ShapeSection';
 import './testimonial.scss';
 
 const Testimonial = ({ testimonial, attribution }) => (
   <div className="testimonial">
-    <div className="testimonial__divider-top">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path
-          d="M1200 120L0 16.48 0 0 1200 0 1200 120z"
-          className="shape-fill"
-        />
-      </svg>
-    </div>
-    <div className="testimonial__wrapper">
-      <div className="testimonial-quote">
-        <RichTextElement value={testimonial.value} />
+    <ShapeSection>
+      <div className="testimonial__wrapper">
+        <div className="testimonial-quote">
+          <RichTextElement value={testimonial.value} />
+        </div>
+        <p className="testimonial__attribution">– {attribution}</p>
       </div>
-      <p className="testimonial__attribution">– {attribution}</p>
-    </div>
-    <div className="testimonial__divider-bottom">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path
-          d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z"
-          className="shape-fill"
-        />
-      </svg>
-    </div>
+    </ShapeSection>
   </div>
 );
 

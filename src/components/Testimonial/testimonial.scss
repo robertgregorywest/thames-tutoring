@@ -9,38 +9,6 @@
   color: var(--color-bg);
 }
 
-.testimonial__divider-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.testimonial__divider-top svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 80px;
-}
-
-.testimonial__divider-bottom {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.testimonial__divider-bottom svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 120px;
-}
-
 .testimonial__wrapper {
   max-width: 75%;
   margin: 2rem auto;
