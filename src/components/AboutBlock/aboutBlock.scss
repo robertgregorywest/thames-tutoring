@@ -4,7 +4,12 @@
   position: relative;
   margin: 0;
   padding: 175px var(--margin) 125px var(--margin);
-  background: linear-gradient(to right, #6fb1fc, #4364f7, #0052d4);
+  background-image: linear-gradient(
+    91.1deg,
+    rgba(57, 31, 105, 1) -2.3%,
+    rgba(115, 43, 155, 1) 44.4%,
+    rgba(231, 75, 184, 1) 103.4%
+  );
   color: var(--color-bg);
 }
 
