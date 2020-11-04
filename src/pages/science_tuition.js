@@ -91,23 +91,6 @@ export const pageQuery = graphql`
                 type
               }
             }
-            ... on kontent_item_call_to_action {
-              id
-              system {
-                codename
-                type
-              }
-              elements {
-                title {
-                  value
-                }
-                target_page {
-                  value {
-                    id
-                  }
-                }
-              }
-            }
           }
         }
         testimonial {
