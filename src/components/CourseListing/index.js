@@ -38,7 +38,9 @@ const CourseListing = ({ title, featuredCourses }) => (
             </div>
             <div className="course-listing__cta">
               <a href="/" className="cta">
-                More details
+                <span className="skewBackground">
+                  <span className="unskew">More details</span>
+                </span>
               </a>
             </div>
           </div>

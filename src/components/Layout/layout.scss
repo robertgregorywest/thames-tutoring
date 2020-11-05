@@ -55,29 +55,40 @@
   padding: 10px 12px;
   color: var(--color-base);
   font-weight: var(--font-bold);
-  opacity: 0.75;
   text-decoration: none;
 }
 
-.nav-current,
+// TODO sort out styling of .nav-current
+
 .site-head__link:hover {
-  text-decoration: none;
-  opacity: 1;
+  color: var(--color-base-lighten);
 }
 
 .site-head__link--contact {
+  margin-left: 15px;
+  padding: 0;
+}
+
+.skewBackground {
+  display: inline-block;
+  transform: skewX(var(--unSkewAngle));
   color: var(--color-bg);
-  opacity: 1;
   background-color: var(--color-action);
-  white-space: nowrap;
-  border-radius: var(--radius);
+  padding: 10px 12px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: all 0.15s ease;
-  margin-left: 18px;
+}
+
+.skewBackground:hover {
+  background-color: var(--color-tt-orange);
+}
+
+.unskew {
+  display: block;
+  transform: skewX(var(--skewAngle));
 }
 
 .site-head__link--contact:hover {
-  opacity: 0.75;
+  color: var(--color-bg);
 }
 
 .site-head-left {
@@ -156,11 +167,6 @@
     opacity: 1;
     transition: transform 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.9s cubic-bezier(0.4, 0.01, 0.165, 0.99);
     transform: translateY(0px);
-  }
-
-  .site-head__link--contact {
-    margin: 10px;
-    padding: 10px;
   }
 
   .site-head-open .nav-current {

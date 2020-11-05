@@ -99,6 +99,7 @@ const Layout = (props) => {
                 to="/contact"
                 text="Contact"
                 linkClassName="site-head__link--contact"
+                skew
               />
             </ul>
           </nav>
@@ -114,11 +115,7 @@ const Layout = (props) => {
               <MenuItem to="/english_tuition" text="English Tuition" />
               <MenuItem to="/courses" text="Courses" />
               <MenuItem to="/blog" text="Blog" />
-              <MenuItem
-                to="/contact"
-                text="Contact"
-                linkClassName="site-head__link--contact"
-              />
+              <MenuItem to="/contact" text="Contact" skew />
             </ul>
           </nav>
         </div>

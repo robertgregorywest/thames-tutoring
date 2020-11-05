@@ -2,7 +2,26 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-const MenuItem = ({ to, text, onClickHandler, linkClassName, children }) => {
+const SkewWrapper = ({ skew, children }) => {
+  if (skew) {
+    return (
+      <span className="skewBackground">
+        <span className="unskew">{children}</span>
+      </span>
+    );
+  }
+  return <>{children}</>;
+};
+
+const MenuItem = ({
+  to,
+  text,
+  onClickHandler,
+  skew,
+  itemClassName,
+  linkClassName,
+  children,
+}) => {
   let link;
   if (onClickHandler) {
     link = (
@@ -11,18 +30,18 @@ const MenuItem = ({ to, text, onClickHandler, linkClassName, children }) => {
         className={`site-head__link ${linkClassName}`}
         onClick={onClickHandler}
       >
-        {text}
+        <SkewWrapper skew={skew}>{text}</SkewWrapper>
       </a>
     );
   } else {
     link = (
       <Link to={to} className={`site-head__link ${linkClassName}`}>
-        {text}
+        <SkewWrapper skew={skew}>{text}</SkewWrapper>
       </Link>
     );
   }
   return (
-    <li role="menuitem" className="site-head__nav-item">
+    <li role="menuitem" className={`site-head__nav-item ${itemClassName}`}>
       {link}
       {children}
     </li>
@@ -32,10 +51,14 @@ const MenuItem = ({ to, text, onClickHandler, linkClassName, children }) => {
 MenuItem.propTypes = {
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  skew: PropTypes.bool,
+  itemClassName: PropTypes.string,
   linkClassName: PropTypes.string,
 };
 
 MenuItem.defaultProps = {
+  skew: false,
+  itemClassName: '',
   linkClassName: '',
 };
 
