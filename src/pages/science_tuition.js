@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
 import LinkedItem from '../components/LinkedItem';
+import TutorListing from '../components/TutorListing';
 import Testimonial from '../components/Testimonial';
 import Header from '../components/Header';
 
@@ -14,6 +15,9 @@ const ScienceTuition = ({ data }) => {
     data.kontentItemSubjectArea.elements.seo_metadata__meta_description.value;
   const summary = data.kontentItemSubjectArea.elements.summary;
   const details = data.kontentItemSubjectArea.elements.details;
+
+  const tutors = data.kontentItemSubjectArea.elements.tutors.value;
+
   const testimonial =
     data.kontentItemSubjectArea.elements.testimonial.value[0].elements
       .testimonial;
@@ -32,7 +36,8 @@ const ScienceTuition = ({ data }) => {
             <LinkedItem linkedItem={linkedItem} />
           )}
         />
-        <h2>Our Tutors</h2>
+        <h2>Our Science Tutors</h2>
+        <TutorListing tutors={tutors} />
       </div>
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
@@ -71,7 +76,13 @@ export const pageQuery = graphql`
                         title {
                           value
                         }
+                        details {
+                          value
+                        }
                         cost {
+                          value
+                        }
+                        unit {
                           value
                         }
                       }
@@ -89,6 +100,65 @@ export const pageQuery = graphql`
               system {
                 codename
                 type
+              }
+            }
+          }
+        }
+        tutors {
+          value {
+            ... on kontent_item_tutor {
+              id
+              elements {
+                tutor_name {
+                  value
+                }
+                introduction {
+                  value
+                }
+                profile_picture {
+                  value {
+                    fluid(maxWidth: 500) {
+                      ...KontentAssetFluid
+                    }
+                    description
+                  }
+                }
+                teaching_provision {
+                  value {
+                    ... on kontent_item_subject_option {
+                      id
+                      elements {
+                        title {
+                          value
+                        }
+                        subject {
+                          value {
+                            ... on kontent_item_subject {
+                              id
+                              elements {
+                                title {
+                                  value
+                                }
+                              }
+                            }
+                          }
+                        }
+                        key_stage {
+                          value {
+                            ... on kontent_item_key_stage {
+                              id
+                              elements {
+                                title {
+                                  value
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }

@@ -10,10 +10,14 @@ const ListingBlock = ({ title, items }) => {
     switch (item.system.type) {
       case 'cost_option': {
         components.push(
-          <CostOption
-            title={item.elements.title.value}
-            cost={item.elements.cost.value}
-          />
+          <div className="grid-cell" key={item.id}>
+            <CostOption
+              title={item.elements.title.value}
+              details={item.elements.details.value}
+              cost={item.elements.cost.value}
+              unit={item.elements.unit.value}
+            />
+          </div>
         );
       }
       // no default
@@ -25,11 +29,7 @@ const ListingBlock = ({ title, items }) => {
       <ShapeSection flippedBottom>
         <div className="listingBlock__wrapper">
           <h2 className="listingBlock__title">{title}</h2>
-          <div className="grid grid--gutters">
-            {components.map((component) => (
-              <div className="grid-cell">{component}</div>
-            ))}
-          </div>
+          <div className="grid grid--gutters">{components};</div>
         </div>
       </ShapeSection>
     </div>

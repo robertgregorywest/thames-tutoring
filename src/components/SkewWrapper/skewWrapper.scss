@@ -1,0 +1,19 @@
+@import "../../assets/scss/variables";
+
+.skewWrapper {
+  display: inline-block;
+  transform: skewX(var(--unSkewAngle));
+  color: var(--color-bg);
+  background-color: var(--color-action);
+  padding: 10px 12px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.skewWrapper:hover {
+  background-color: var(--color-tt-orange);
+}
+
+.skewWrapper__text {
+  display: block;
+  transform: skewX(var(--skewAngle));
+}

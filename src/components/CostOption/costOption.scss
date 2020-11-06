@@ -1,23 +1,44 @@
 @import "../../assets/scss/variables";
 
 .costOption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
   padding: 2.5em;
   margin: 0;
   border: 2px solid var(--color-bg);
   color: var(--color-bg);
+  height: 100%;
 }
 
 p.costOption__title {
   margin-top: 0;
-  font-size: 1.5em;
-}
-
-p.costOption__cost {
-  font-size: 2em;
+  font-size: 1.75em;
   font-weight: var(--font-bold);
 }
 
-p.costOption__cta {
+p.costOption__cost {
+  font-size: 2.75em;
+  font-weight: var(--font-bold);
+  letter-spacing: -0.01em;
+  margin-bottom: 0;
+}
+
+p.costOption__unit {
+  font-size: 0.9em;
+  margin-top: 0;
+  line-height: 1em;
+}
+
+p.costOption__details {
+  margin-top: 2em;
+  margin-bottom: 0;
+  line-height: 1.5em;
+}
+
+.costOption__cta {
+  margin-top: 2em;
   margin-bottom: 0;
   font-size: 1.5em;
 }

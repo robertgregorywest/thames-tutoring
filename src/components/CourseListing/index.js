@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'gatsby-image';
+import SkewWrapper from '../SkewWrapper';
 import './courseListing.scss';
 
 const CourseListing = ({ title, featuredCourses }) => (
@@ -38,9 +39,7 @@ const CourseListing = ({ title, featuredCourses }) => (
             </div>
             <div className="course-listing__cta">
               <a href="/" className="cta">
-                <span className="skewBackground">
-                  <span className="unskew">More details</span>
-                </span>
+                <SkewWrapper>More details</SkewWrapper>
               </a>
             </div>
           </div>
