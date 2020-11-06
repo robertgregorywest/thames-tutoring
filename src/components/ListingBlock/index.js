@@ -29,7 +29,7 @@ const ListingBlock = ({ title, items }) => {
       <ShapeSection flippedBottom>
         <div className="listingBlock__wrapper">
           <h2 className="listingBlock__title">{title}</h2>
-          <div className="grid grid--gutters">{components};</div>
+          <div className="grid grid--gutters">{components}</div>
         </div>
       </ShapeSection>
     </div>
