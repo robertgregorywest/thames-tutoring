@@ -5,14 +5,17 @@
   padding: 0;
 }
 
-.tutorListing__provisionSubject {
-  margin-bottom: 1em;
+.tutorListing__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
 }
 
-.tutorListing__provisionSubjectTitle {
-  margin-right: 2em;
-}
-
-.tutorListing__provisionSubjectKeyStage {
-  margin-right: 1em;
+.tutorListing__provisionItem {
+  display: block;
+  margin: 0 1em 1em 0;
+  padding: 0;
+  white-space: nowrap;
 }

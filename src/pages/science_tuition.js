@@ -115,7 +115,7 @@ export const pageQuery = graphql`
                 introduction {
                   value
                 }
-                profile_picture {
+                summary_picture {
                   value {
                     fluid(maxWidth: 500) {
                       ...KontentAssetFluid
@@ -130,30 +130,6 @@ export const pageQuery = graphql`
                       elements {
                         title {
                           value
-                        }
-                        subject {
-                          value {
-                            ... on kontent_item_subject {
-                              id
-                              elements {
-                                title {
-                                  value
-                                }
-                              }
-                            }
-                          }
-                        }
-                        key_stage {
-                          value {
-                            ... on kontent_item_key_stage {
-                              id
-                              elements {
-                                title {
-                                  value
-                                }
-                              }
-                            }
-                          }
                         }
                       }
                     }

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './skewWrapper.scss';
 
-const SkewWrapper = ({ skew, children }) => {
+const SkewWrapper = ({ skew, hover, children }) => {
   if (skew) {
     return (
-      <span className="skewWrapper">
+      <span className={`skewWrapper${hover ? ' skewWrapper--hover' : ''}`}>
         <span className="skewWrapper__text">{children}</span>
       </span>
     );
@@ -15,11 +15,13 @@ const SkewWrapper = ({ skew, children }) => {
 
 SkewWrapper.propTypes = {
   skew: PropTypes.bool,
+  hover: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 
 SkewWrapper.defaultProps = {
   skew: true,
+  hover: true,
 };
 
 export default SkewWrapper;
