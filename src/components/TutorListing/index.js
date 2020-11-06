@@ -22,8 +22,8 @@ const TutorListing = ({ tutors }) => (
               {tutor.elements.tutor_name.value}
             </h3>
             <RichTextElement value={tutor.elements.introduction.value} />
-            <h3>Subjects Offered</h3>
-            <ul className="tutorListing__list">
+            <h3 className="tutorListing__provisionTitle">Subjects Offered</h3>
+            <ul className="tutorListing__provisionList">
               {tutor.elements.teaching_provision.value.map((subjectOption) => (
                 <li
                   key={subjectOption.id}

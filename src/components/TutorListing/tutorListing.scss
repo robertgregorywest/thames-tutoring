@@ -5,7 +5,22 @@
   padding: 0;
 }
 
-.tutorListing__list {
+.tutorListing p {
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.tutorListing__title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tutorListing__provisionTitle {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+}
+
+.tutorListing__provisionList {
   display: flex;
   flex-wrap: wrap;
   margin: 1em 0;
