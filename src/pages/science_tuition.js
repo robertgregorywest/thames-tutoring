@@ -93,8 +93,15 @@ export const pageQuery = graphql`
                     }
                   }
                 }
-                listing_title {
-                  value
+                shape_dividers {
+                  value {
+                    codename
+                  }
+                }
+                width {
+                  value {
+                    codename
+                  }
                 }
               }
               system {

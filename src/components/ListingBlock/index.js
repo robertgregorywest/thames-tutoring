@@ -1,10 +1,12 @@
 /* eslint-disable comma-dangle */
 import React from 'react';
-import ShapeSection from '../ShapeSection';
+import ShapeSection, { gradients } from '../ShapeSection';
 import CostOption from '../CostOption';
+import Course from '../Course';
 import './listingBlock.scss';
 
-const ListingBlock = ({ title, items }) => {
+const ListingBlock = ({ items, useShape, fullWidth }) => {
+  console.log(fullWidth);
   const components = [];
   items.forEach((item) => {
     switch (item.system.type) {
@@ -19,20 +21,36 @@ const ListingBlock = ({ title, items }) => {
             />
           </div>
         );
+        break;
+      }
+      case 'course': {
+        components.push(
+          <div className="grid-cell" key={item.id}>
+            <Course course={item} />
+          </div>
+        );
+        break;
       }
       // no default
     }
   });
 
+  const ConditionalWrapper = ({ condition, wrapper, children }) =>
+    condition ? wrapper(children) : children;
+
   return (
-    <div className="listingBlock">
-      <ShapeSection flippedBottom>
-        <div className="listingBlock__wrapper">
-          <h2 className="listingBlock__title">{title}</h2>
-          <div className="grid grid--gutters">{components}</div>
-        </div>
-      </ShapeSection>
-    </div>
+    <ConditionalWrapper
+      condition={useShape}
+      wrapper={(children) => (
+        <ShapeSection flippedBottom gradient={gradients.BLUE}>
+          {children}
+        </ShapeSection>
+      )}
+    >
+      <div className={`listingBlock${fullWidth ? ` listingBlock--full` : ``}`}>
+        <div className="grid grid--gutters">{components}</div>
+      </div>
+    </ConditionalWrapper>
   );
 };
 

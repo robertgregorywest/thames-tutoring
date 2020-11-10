@@ -1,0 +1,27 @@
+@import "../../assets/scss/variables";
+
+.course__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.course__image {
+  margin: 0 0 1rem 0;
+}
+
+.course__title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.course__cta {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: $breakpoint-medium) {
+  .course__cta {
+    margin-top: 1rem;
+  }
+}

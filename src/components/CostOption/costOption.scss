@@ -7,8 +7,7 @@
   box-sizing: border-box;
   padding: 2.5em;
   margin: 0;
-  border: 2px solid var(--color-bg);
-  color: var(--color-bg);
+  border: 2px solid var(--color-base);
   height: 100%;
 }
 
@@ -44,5 +43,5 @@ p.costOption__details {
 }
 
 .costOption__link {
-  color: var(--color-bg);
+  color: var(--color-base);
 }

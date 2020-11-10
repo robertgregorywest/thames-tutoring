@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
+import LinkedItem from '../components/LinkedItem';
 import CourseListing from '../components/CourseListing';
 import Testimonial from '../components/Testimonial';
 import Header from '../components/Header';
@@ -9,7 +11,8 @@ const Courses = ({ data }) => {
   const title = data.kontentItemArticle.elements.title.value;
   const description =
     data.kontentItemArticle.elements.seo_metadata__meta_description.value;
-  const intro = data.kontentItemArticle.elements.body;
+  const introduction = data.kontentItemArticle.elements.introduction;
+  const body = data.kontentItemArticle.elements.body;
 
   const testimonial =
     data.kontentItemArticle.elements.testimonial.value[0].elements.testimonial;
@@ -21,7 +24,14 @@ const Courses = ({ data }) => {
 
   return (
     <Layout title={title} description={description}>
-      <Header title={title} richText={intro} />
+      <Header title={title} richText={introduction} />
+      <RichTextElement
+        value={body.value}
+        linkedItems={body.modular_content}
+        resolveLinkedItem={(linkedItem) => (
+          <LinkedItem linkedItem={linkedItem} />
+        )}
+      />
       <CourseListing title="Courses" featuredCourses={featuredCourses} />
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
@@ -43,8 +53,65 @@ export const pageQuery = graphql`
         seo_metadata__meta_description {
           value
         }
+        introduction {
+          value
+        }
         body {
           value
+          modular_content {
+            ... on kontent_item_listing_block {
+              id
+              elements {
+                items {
+                  value {
+                    ... on kontent_item_course {
+                      id
+                      elements {
+                        title {
+                          value
+                        }
+                        cost {
+                          value
+                        }
+                        dates {
+                          value
+                        }
+                        summary {
+                          value
+                        }
+                        summary_image {
+                          value {
+                            fluid(maxWidth: 500) {
+                              ...KontentAssetFluid
+                            }
+                            description
+                          }
+                        }
+                      }
+                      system {
+                        codename
+                        type
+                      }
+                    }
+                  }
+                }
+                shape_dividers {
+                  value {
+                    codename
+                  }
+                }
+                width {
+                  value {
+                    codename
+                  }
+                }
+              }
+              system {
+                codename
+                type
+              }
+            }
+          }
         }
         testimonial {
           value {

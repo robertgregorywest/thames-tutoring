@@ -2,8 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './shapeSection.scss';
 
-const ShapeSection = ({ children, flippedTop, flippedBottom }) => (
-  <>
+export const gradients = {
+  ORANGE: 'orange',
+  BLUE: 'blue',
+};
+
+function gradientStyle(gradient) {
+  switch (gradient) {
+    case gradients.BLUE:
+      return ' shapeSection--blue';
+    default:
+      return ' shapeSection--orange';
+  }
+}
+
+const ShapeSection = ({ children, flippedTop, flippedBottom, gradient }) => (
+  <div className={`shapeSection${gradientStyle(gradient)}`}>
     <div
       className={`shapeSection__divider-top${
         flippedTop ? ' shapeSection__divider-top--flipped' : ''
@@ -29,18 +43,20 @@ const ShapeSection = ({ children, flippedTop, flippedBottom }) => (
         />
       </svg>
     </div>
-  </>
+  </div>
 );
 
 ShapeSection.propTypes = {
   children: PropTypes.node.isRequired,
   flippedTop: PropTypes.bool,
   flippedBottom: PropTypes.bool,
+  gradient: PropTypes.string,
 };
 
 ShapeSection.defaultProps = {
   flippedTop: false,
   flippedBottom: false,
+  gradient: gradients.ORANGE,
 };
 
 export default ShapeSection;

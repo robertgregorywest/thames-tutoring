@@ -4,16 +4,14 @@ import ShapeSection from '../ShapeSection';
 import './testimonial.scss';
 
 const Testimonial = ({ testimonial, attribution }) => (
-  <div className="testimonial">
-    <ShapeSection>
-      <div className="testimonial__wrapper">
-        <div className="testimonial-quote">
-          <RichTextElement value={testimonial.value} />
-        </div>
-        <p className="testimonial__attribution">– {attribution}</p>
+  <ShapeSection>
+    <div className="testimonial">
+      <div className="testimonial-quote">
+        <RichTextElement value={testimonial.value} />
       </div>
-    </ShapeSection>
-  </div>
+      <p className="testimonial__attribution">– {attribution}</p>
+    </div>
+  </ShapeSection>
 );
 
 export default Testimonial;

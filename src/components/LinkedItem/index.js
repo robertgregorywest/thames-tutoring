@@ -17,8 +17,13 @@ const LinkedItem = ({ linkedItem }) => {
     case 'listing_block': {
       return (
         <ListingBlock
-          title={linkedItem.elements.listing_title.value}
           items={linkedItem.elements.items.value}
+          useShape={
+            linkedItem.elements.shape_dividers.value[0].codename === 'yes'
+          }
+          fullWidth={
+            linkedItem.elements.width.value[0].codename === 'full_width'
+          }
         />
       );
     }
