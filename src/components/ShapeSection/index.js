@@ -17,7 +17,7 @@ const ShapeSection = ({ children, flippedTop, flippedBottom, gradient }) => {
     }
   };
   return (
-    <div className={`shapeSection${gradientStyle()}`}>
+    <div className={`main-wrapper__full shapeSection${gradientStyle()}`}>
       <div
         className={`shapeSection__divider-top${
           flippedTop ? ' shapeSection__divider-top--flipped' : ''

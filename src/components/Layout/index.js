@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import Header from '../Header';
 import MenuItem from './menuItem';
 import MenuItemDropdown from './menuItemDropdown';
 import Hamburger from './hamburger';
@@ -13,9 +14,13 @@ import './hamburger.scss';
 import './menuDropdown.scss';
 import logo from '../../assets/logos/logo.svg';
 
-const Layout = (props) => {
-  const { title, description, children } = props;
-
+const Layout = ({
+  title,
+  metaTitle,
+  metaDescription,
+  introduction,
+  children,
+}) => {
   const [navIsVisible, setnavIsVisible] = useState(false);
   const [subnavIsVisible, setSubnavIsVisible] = useState(false);
 
@@ -38,10 +43,10 @@ const Layout = (props) => {
     <div className={`site-wrapper${navIsVisible ? ' site-head-open' : ''}`}>
       <Helmet defaultTitle={siteTitle} titleTemplate={titleTemplate}>
         <html lang="en" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
       </Helmet>
-      <header className="site-head">
+      <div className="site-head">
         <div className="site-head-container">
           <div className="site-head-left">
             <Link className="site-head__logo" to="/">
@@ -119,8 +124,9 @@ const Layout = (props) => {
             </ul>
           </nav>
         </div>
-      </header>
-      <main className="site-main">{children}</main>
+      </div>
+      <Header title={title} richText={introduction} />
+      <main className="main-wrapper">{children}</main>
       <Footer />
     </div>
   );

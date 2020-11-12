@@ -48,7 +48,7 @@ const ListingBlock = ({ items, useShape, fullWidth }) => {
     >
       <div
         className={`${
-          fullWidth ? `listingBlock--full` : 'listingBlock--content-width'
+          fullWidth ? `main-wrapper__width-90` : 'listingBlock--content-width'
         }`}
       >
         <div className="grid grid--gutters grid--full large-grid--fit">

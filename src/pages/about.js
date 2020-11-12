@@ -4,7 +4,6 @@ import Image from 'gatsby-image';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
 import Testimonial from '../components/Testimonial';
-import Header from '../components/Header';
 
 const About = ({ data }) => {
   const title = data.kontentItemArticle.elements.title.value;
@@ -20,23 +19,24 @@ const About = ({ data }) => {
       .value;
 
   return (
-    <Layout title={metaTitle} description={metaDescription}>
-      <Header title={title} />
-      <div className="content-body">
-        <RichTextElement
-          value={body.value}
-          images={body.images}
-          resolveImage={(image) => (
-            <figure className="width-wide image-card">
-              <Image
-                fluid={image.fluid}
-                title={image.description}
-                alt={image.description}
-              />
-            </figure>
-          )}
-        />
-      </div>
+    <Layout
+      title={title}
+      metaTitle={metaTitle}
+      metaDescription={metaDescription}
+    >
+      <RichTextElement
+        value={body.value}
+        images={body.images}
+        resolveImage={(image) => (
+          <figure className="main-wrapper__width-75">
+            <Image
+              fluid={image.fluid}
+              title={image.description}
+              alt={image.description}
+            />
+          </figure>
+        )}
+      />
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );

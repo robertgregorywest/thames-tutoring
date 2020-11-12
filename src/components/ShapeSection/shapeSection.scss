@@ -2,10 +2,6 @@
 
 .shapeSection {
   position: relative;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  transform: translateX(calc(50vw - 50%));
   padding-top: 120px;
   padding-bottom: 120px;
   margin-bottom: var(--margin);

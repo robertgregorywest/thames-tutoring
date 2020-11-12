@@ -3,7 +3,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { navigate } from 'gatsby-link';
-import Header from '../components/Header';
 import Layout from '../components/Layout';
 import '../assets/scss/pages/contact.scss';
 
@@ -41,79 +40,81 @@ const Contact = ({ data }) => {
   };
 
   return (
-    <Layout title={title} description={description}>
-      <Header title={title} richText={intro} />
-      <div className="content-body">
-        <form
-          className="contact"
-          name="contact"
-          method="post"
-          action="/thanks/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p hidden>
-            <label htmlFor="bot-field">
-              Don’t fill this out:{' '}
-              <input name="bot-field" onChange={handleChange} />
-            </label>
-          </p>
-          <div className="contact__field">
-            <label htmlFor="name">
-              Your Name:{' '}
-              <input
-                type="text"
-                name="name"
-                className="contact__field-element"
-                required
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div className="contact__field">
-            <label htmlFor="email">
-              Your Email:{' '}
-              <input
-                type="email"
-                name="email"
-                className="contact__field-element"
-                required
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div className="contact__field">
-            <label htmlFor="subject">
-              Subject:{' '}
-              <input
-                type="subject"
-                name="subject"
-                className="contact__field-element"
-                required
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div className="contact__field">
-            <label htmlFor="message">
-              Message:{' '}
-              <textarea
-                name="message"
-                className="contact__field-element contact__textarea"
-                required
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <button type="submit" className="contact__button">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
+    <Layout
+      metaTitle={title}
+      title={title}
+      metaDescription={description}
+      introduction={intro}
+    >
+      <form
+        className="contact"
+        name="contact"
+        method="post"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label htmlFor="bot-field">
+            Don’t fill this out:{' '}
+            <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
+        <div className="contact__field">
+          <label htmlFor="name">
+            Your Name:{' '}
+            <input
+              type="text"
+              name="name"
+              className="contact__field-element"
+              required
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className="contact__field">
+          <label htmlFor="email">
+            Your Email:{' '}
+            <input
+              type="email"
+              name="email"
+              className="contact__field-element"
+              required
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className="contact__field">
+          <label htmlFor="subject">
+            Subject:{' '}
+            <input
+              type="subject"
+              name="subject"
+              className="contact__field-element"
+              required
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div className="contact__field">
+          <label htmlFor="message">
+            Message:{' '}
+            <textarea
+              name="message"
+              className="contact__field-element contact__textarea"
+              required
+              onChange={handleChange}
+            />
+          </label>
+        </div>
+        <div>
+          <button type="submit" className="contact__button">
+            Submit
+          </button>
+        </div>
+      </form>
     </Layout>
   );
 };

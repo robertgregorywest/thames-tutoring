@@ -7,21 +7,38 @@
   margin: auto;
 }
 
-// Content pages
+// Content grid system from https://joshwcomeau.com/css/full-bleed/
 
-.content-body {
-  width: unquote("min(85ch, 90vw)");
-  margin: 0 auto;
-  padding: 0 0 var(--margin) 0;
+.main-wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    unquote("min(85ch, calc(100% - 64px))")
+    1fr;
+  grid-column-gap: 32px;
 }
 
-.course-body > h2 {
-  text-align: center;
+.main-wrapper > * {
+  grid-column: 2;
 }
 
-.course-body > p {
-  width: unquote("min(85ch, 90vw)");
-  margin: 0 auto;
+.main-wrapper__full {
+  width: 100%;
+  grid-column: 1 / 4;
+}
+
+.main-wrapper__width-90 {
+  width: 90%;
+  grid-column: 1 / 4;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-wrapper__width-75 {
+  width: 75%;
+  grid-column: 1 / 4;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // Site navigation

@@ -5,7 +5,6 @@ import Layout from '../components/Layout';
 import LinkedItem from '../components/LinkedItem';
 import TutorListing from '../components/TutorListing';
 import Testimonial from '../components/Testimonial';
-import Header from '../components/Header';
 
 const ScienceTuition = ({ data }) => {
   const title = data.kontentItemSubjectArea.elements.title.value;
@@ -26,19 +25,21 @@ const ScienceTuition = ({ data }) => {
       .attribution.value;
 
   return (
-    <Layout title={metaTitle} description={metaDescription}>
-      <Header title={title} richText={summary} />
-      <div className="content-body">
-        <RichTextElement
-          value={details.value}
-          linkedItems={details.modular_content}
-          resolveLinkedItem={(linkedItem) => (
-            <LinkedItem linkedItem={linkedItem} />
-          )}
-        />
-        <h2>Our Science Tutors</h2>
-        <TutorListing tutors={tutors} />
-      </div>
+    <Layout
+      title={title}
+      metaTitle={metaTitle}
+      metaDescription={metaDescription}
+      introduction={summary}
+    >
+      <RichTextElement
+        value={details.value}
+        linkedItems={details.modular_content}
+        resolveLinkedItem={(linkedItem) => (
+          <LinkedItem linkedItem={linkedItem} />
+        )}
+      />
+      <h2>Our Science Tutors</h2>
+      <TutorListing tutors={tutors} />
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );

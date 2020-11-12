@@ -18,7 +18,7 @@ function getIcon(subjectArea) {
 }
 
 const SubjectAreasListing = ({ title, subjectAreas }) => (
-  <div className="subject-areas-listing">
+  <div className="main-wrapper__width-90 subject-areas-listing">
     <h2 className="subject-areas-listing__title">{title}</h2>
     <div className="grid grid--gutters grid--full large-grid--fit">
       {subjectAreas &&

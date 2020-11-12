@@ -3,7 +3,7 @@ import Course from '../Course';
 import './courseListing.scss';
 
 const CourseListing = ({ title, featuredCourses }) => (
-  <div className="course-listing">
+  <div className="main-wrapper__width-90 course-listing">
     <h2 className="course-listing__title">{title}</h2>
     <div className="grid grid--gutters grid--full large-grid--fit">
       {featuredCourses &&

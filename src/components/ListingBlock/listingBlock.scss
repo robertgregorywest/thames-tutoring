@@ -5,14 +5,3 @@
   padding: 0;
   width: unquote("min(85ch, 90vw)");
 }
-
-.listingBlock--full {
-  margin: 0 auto;
-  padding: 0;
-  width: 90vw;
-  // width: 100vw;
-  // position: relative;
-  // margin-left: calc(50% - 50vw);
-  // margin-right: calc(50% - 50vw);
-  // transform: translateX(calc(50vw - 50%));
-}

@@ -4,11 +4,10 @@ import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
 import LinkedItem from '../components/LinkedItem';
 import Testimonial from '../components/Testimonial';
-import Header from '../components/Header';
 
 const Courses = ({ data }) => {
   const title = data.kontentItemArticle.elements.title.value;
-  const description =
+  const metaDescription =
     data.kontentItemArticle.elements.seo_metadata__meta_description.value;
   const introduction = data.kontentItemArticle.elements.introduction;
   const body = data.kontentItemArticle.elements.body;
@@ -20,18 +19,19 @@ const Courses = ({ data }) => {
       .value;
 
   return (
-    <Layout title={title} description={description}>
-      <Header title={title} richText={introduction} />
-      <div className="course-body">
-        <RichTextElement
-          value={body.value}
-          linkedItems={body.modular_content}
-          resolveLinkedItem={(linkedItem) => (
-            <LinkedItem linkedItem={linkedItem} />
-          )}
-        />
-      </div>
-
+    <Layout
+      title={title}
+      metaTitle={title}
+      metaDescription={metaDescription}
+      introduction={introduction}
+    >
+      <RichTextElement
+        value={body.value}
+        linkedItems={body.modular_content}
+        resolveLinkedItem={(linkedItem) => (
+          <LinkedItem linkedItem={linkedItem} />
+        )}
+      />
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );
