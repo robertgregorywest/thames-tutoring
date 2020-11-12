@@ -1,8 +1,7 @@
 @import "../../assets/scss/variables";
 
 .course-listing {
-  margin: 0;
-  padding: var(--margin);
+  margin: var(--margin) auto;
 }
 
 .course-listing__title {

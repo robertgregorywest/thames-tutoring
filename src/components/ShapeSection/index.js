@@ -5,6 +5,7 @@ import './shapeSection.scss';
 export const gradients = {
   ORANGE: 'orange',
   BLUE: 'blue',
+  PURPLE: 'purple',
 };
 
 const ShapeSection = ({ children, flippedTop, flippedBottom, gradient }) => {
@@ -12,12 +13,14 @@ const ShapeSection = ({ children, flippedTop, flippedBottom, gradient }) => {
     switch (gradient) {
       case gradients.BLUE:
         return ' shapeSection--blue';
+      case gradients.PURPLE:
+        return ' shapeSection--purple';
       default:
         return ' shapeSection--orange';
     }
   };
   return (
-    <div className={`shapeSection${gradientStyle()}`}>
+    <div className={`main-wrapper__full shapeSection${gradientStyle()}`}>
       <div
         className={`shapeSection__divider-top${
           flippedTop ? ' shapeSection__divider-top--flipped' : ''

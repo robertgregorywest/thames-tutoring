@@ -28,21 +28,26 @@
 }
 
 .contact__button {
-  background-color: var(--color-tt-red);
-  padding: 0 15px;
-  line-height: 40px;
-  letter-spacing: 0.025em;
+  display: inline-block;
+  transform: skewX(var(--unSkewAngle));
+  color: var(--color-bg);
+  background-color: var(--color-action);
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
   font-weight: 700;
-  padding: 0 14px;
   color: var(--color-bg);
   white-space: nowrap;
-  border-radius: var(--radius);
-  border-color: var(--color-tt-red);
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: none;
+  outline: none;
+}
+
+.contact__button-text {
+  display: block;
+  transform: skewX(var(--skewAngle));
 }
 
 .contact__button:hover {
-  opacity: 0.75;
+  background-color: var(--color-tt-orange);
 }
 
 .contact__button:focus {

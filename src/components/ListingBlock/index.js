@@ -6,7 +6,6 @@ import Course from '../Course';
 import './listingBlock.scss';
 
 const ListingBlock = ({ items, useShape, fullWidth }) => {
-  console.log(fullWidth);
   const components = [];
   items.forEach((item) => {
     switch (item.system.type) {
@@ -47,8 +46,16 @@ const ListingBlock = ({ items, useShape, fullWidth }) => {
         </ShapeSection>
       )}
     >
-      <div className={`listingBlock${fullWidth ? ` listingBlock--full` : ``}`}>
-        <div className="grid grid--gutters">{components}</div>
+      <div
+        className={`${
+          fullWidth
+            ? `main-wrapper__width-90 listingBlock--full-width`
+            : 'listingBlock--content-width'
+        }`}
+      >
+        <div className="grid grid--gutters grid--full large-grid--fit">
+          {components}
+        </div>
       </div>
     </ConditionalWrapper>
   );

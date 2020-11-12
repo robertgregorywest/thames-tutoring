@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import Layout from '../components/Layout';
-import Header from '../components/Header';
 import CourseListing from '../components/CourseListing';
 import AboutBlock from '../components/AboutBlock';
 import SubjectAreasListing from '../components/SubjectAreasListing';
@@ -34,9 +33,13 @@ const Index = ({ data }) => {
   const subjectAreas = data.kontentItemHome.elements.subject_areas.value;
 
   return (
-    <Layout title={metaTitle} description={description}>
-      <Header title={title} richText={vision} />
-      <figure className="width-full">
+    <Layout
+      title={title}
+      metaTitle={metaTitle}
+      metaDescription={description}
+      introduction={vision}
+    >
+      <figure className="main-wrapper__full">
         <Image fluid={heroImage.fluid} alt={heroImage.description} />
       </figure>
       {showCourses && (
@@ -157,6 +160,9 @@ export const pageQuery = graphql`
                   value
                 }
                 summary {
+                  value
+                }
+                url {
                   value
                 }
               }

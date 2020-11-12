@@ -1,6 +1,5 @@
 @import "./normalize";
 @import "./grid";
-@import "./header";
 @import "./cta";
 @import "./variables";
 
@@ -40,7 +39,7 @@ h6 {
 h1 {
   margin: 0 0 0.5em 0;
   font-size: 2.7rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 @media (min-width: $breakpoint-medium) {
   h1 {
@@ -55,6 +54,7 @@ h2 {
 @media (min-width: $breakpoint-medium) {
   h2 {
     font-size: 2.5rem;
+    text-align: center;
   }
 }
 
@@ -100,34 +100,6 @@ a {
   color: var(--color-action);
 }
 
-// Images
-
-.image {
-  display: block;
-  max-width: 100%;
-  width: 100%;
-  height: 100%;
-  margin: 4vw 0;
-}
-
-.image-card {
-  margin: 5vw 0;
-}
-
-.width-wide {
-  position: relative;
-  width: 74vw;
-  min-width: 100%;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  transform: translateX(calc(50vw - 50%));
-}
-
-.width-full {
-  position: relative;
-  width: 94vw;
-  min-width: 100%;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  transform: translateX(calc(50vw - 50%));
+figure {
+  margin: var(--margin) 0;
 }

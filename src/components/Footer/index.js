@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import logo from '../../assets/logos/logo-black.svg';
 import './footer.scss';
 
-const Footer = () => (
+const Footer = ({ email, phoneNumber }) => (
   <footer className="site-foot">
     <div className="site-foot-left">
       <Link className="footer-logo" to="/">
@@ -11,9 +11,9 @@ const Footer = () => (
         Thames Tutoring
       </Link>
       <p className="site-foot__contact">
-        <a href="mailto:info@thamestutoring.com">info@thamestutoring.com</a>
+        <a href={`mailto:${email}`}>{email}</a>
         <br />
-        07555 346594
+        {phoneNumber}
       </p>
       <nav className="social-icons">
         <a
@@ -73,9 +73,9 @@ const Footer = () => (
             <li role="menuitem">
               <Link to="/courses">Courses</Link>
             </li>
-            <li role="menuitem">
+            {/* <li role="menuitem">
               <Link to="/blog">Blog</Link>
-            </li>
+            </li> */}
             <li role="menuitem">
               <Link to="/contact">Contact</Link>
             </li>
@@ -90,6 +90,9 @@ const Footer = () => (
             </li>
             <li role="menuitem">
               <Link to="/">Safeguarding Policy</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/">Coronavirus Policy</Link>
             </li>
           </ul>
         </nav>
