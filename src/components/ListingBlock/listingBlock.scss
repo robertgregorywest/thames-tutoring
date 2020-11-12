@@ -1,7 +1,8 @@
-@import "../../assets/scss/variables";
+.listingBlock--full-width {
+  margin: var(--margin) auto;
+}
 
 .listingBlock--content-width {
   margin: 0 auto;
-  padding: 0;
   width: unquote("min(85ch, 90vw)");
 }

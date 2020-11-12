@@ -27,7 +27,7 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
             key={subject.system.codename}
             className="grid-cell subject-areas-listing__cell"
           >
-            <Link to={`/tuition/${subject.system.codename}`}>
+            <Link to={`/${subject.elements.url.value}`}>
               <span className="subject-areas-listing__icon">
                 <img
                   src={getIcon(subject.elements.title.value)}
@@ -44,7 +44,7 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
             <p>
               <Link
                 className="subject-areas-listing__link cta-secondary"
-                to={`/tuition/${subject.system.codename}`}
+                to={`/${subject.elements.url.value}`}
               >
                 Learn more about {subject.elements.title.value}
               </Link>

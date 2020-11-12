@@ -6,7 +6,7 @@ import LinkedItem from '../components/LinkedItem';
 import TutorListing from '../components/TutorListing';
 import Testimonial from '../components/Testimonial';
 
-const ScienceTuition = ({ data }) => {
+const SubjectTemplate = ({ data }) => {
   const title = data.kontentItemSubjectArea.elements.title.value;
   const metaTitle =
     data.kontentItemSubjectArea.elements.seo_metadata__meta_title.value;
@@ -45,11 +45,11 @@ const ScienceTuition = ({ data }) => {
   );
 };
 
-export default ScienceTuition;
+export default SubjectTemplate;
 
 export const pageQuery = graphql`
-  query ScienceTuitionQuery {
-    kontentItemSubjectArea(system: { codename: { eq: "science_tuition" } }) {
+  query SubjectQuery($url: String!) {
+    kontentItemSubjectArea(elements: { url: { value: { eq: $url } } }) {
       elements {
         title {
           value

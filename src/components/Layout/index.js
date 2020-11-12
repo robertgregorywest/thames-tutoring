@@ -31,6 +31,30 @@ const Layout = ({
           site_title {
             value
           }
+          contact_email {
+            value
+          }
+          contact_phone {
+            value
+          }
+          subject_areas {
+            value {
+              ... on kontent_item_subject_area {
+                id
+                elements {
+                  title {
+                    value
+                  }
+                  menu_description {
+                    value
+                  }
+                  url {
+                    value
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -38,6 +62,9 @@ const Layout = ({
 
   const siteTitle = data.kontentItemHome.elements.site_title.value;
   const titleTemplate = `${siteTitle} - %s`;
+  const email = data.kontentItemHome.elements.contact_email.value;
+  const phoneNumber = data.kontentItemHome.elements.contact_phone.value;
+  const subjects = data.kontentItemHome.elements.subject_areas.value;
 
   return (
     <div className={`site-wrapper${navIsVisible ? ' site-head-open' : ''}`}>
@@ -80,26 +107,18 @@ const Layout = ({
                     }}
                     hidden={!subnavIsVisible}
                   >
-                    <MenuItemDropdown
-                      to="/science_tuition"
-                      title="Science Tuition"
-                      text="We provide 1-2-1 and small group tuition in Maths for all abilities."
-                    />
-                    <MenuItemDropdown
-                      to="/maths_tuition"
-                      title="Maths Tuition"
-                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
-                    />
-                    <MenuItemDropdown
-                      to="/english_tuition"
-                      title="English Tuition"
-                      text="Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit"
-                    />
+                    {subjects.map((subject) => (
+                      <MenuItemDropdown
+                        to={`/${subject.elements.url.value}`}
+                        title={subject.elements.title.value}
+                        text={subject.elements.menu_description.value}
+                      />
+                    ))}
                   </ul>
                 </div>
               </MenuItem>
               <MenuItem to="/courses" text="Courses" />
-              <MenuItem to="/blog" text="Blog" />
+              {/* <MenuItem to="/blog" text="Blog" /> */}
               <MenuItem
                 to="/contact"
                 text="Contact"
@@ -115,11 +134,14 @@ const Layout = ({
             <ul className="mobile-nav__list" role="menu">
               <MenuItem to="/" text="Home" />
               <MenuItem to="/about" text="About" />
-              <MenuItem to="/science_tuition" text="Science Tuition" />
-              <MenuItem to="/maths_tuition" text="Maths Tuition" />
-              <MenuItem to="/english_tuition" text="English Tuition" />
+              {subjects.map((subject) => (
+                <MenuItem
+                  to={`/${subject.elements.url.value}`}
+                  text={subject.elements.title.value}
+                />
+              ))}
               <MenuItem to="/courses" text="Courses" />
-              <MenuItem to="/blog" text="Blog" />
+              {/* <MenuItem to="/blog" text="Blog" /> */}
               <MenuItem to="/contact" text="Contact" skew />
             </ul>
           </nav>
@@ -127,7 +149,7 @@ const Layout = ({
       </div>
       <Header title={title} richText={introduction} />
       <main className="main-wrapper">{children}</main>
-      <Footer />
+      <Footer email={email} phoneNumber={phoneNumber} />
     </div>
   );
 };

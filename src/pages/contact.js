@@ -111,7 +111,7 @@ const Contact = ({ data }) => {
         </div>
         <div>
           <button type="submit" className="contact__button">
-            Submit
+            <span className="contact__button-text">Submit</span>
           </button>
         </div>
       </form>

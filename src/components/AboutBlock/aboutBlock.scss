@@ -1,20 +1,12 @@
 @import "../../assets/scss/variables";
 
 .about {
-  position: relative;
-  margin: 0;
-  padding: 175px var(--margin) 125px var(--margin);
-  background-image: linear-gradient(
-    91.1deg,
-    rgba(57, 31, 105, 1) -2.3%,
-    rgba(115, 43, 155, 1) 44.4%,
-    rgba(231, 75, 184, 1) 103.4%
-  );
   color: var(--color-bg);
 }
 
 .about__title {
   margin: 0;
+  text-align: left;
 }
 
 .about__text {
@@ -36,44 +28,4 @@
     font-size: 1.1rem;
     line-height: 2rem;
   }
-}
-
-.custom-shape-divider-top-1594982357 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-top-1594982357 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 120px;
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1594916332 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1594916332 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 80px;
-  transform: rotateY(180deg);
-}
-
-.shape-fill {
-  fill: var(--color-bg);
 }

@@ -162,6 +162,9 @@ export const pageQuery = graphql`
                 summary {
                   value
                 }
+                url {
+                  value
+                }
               }
               system {
                 codename
