@@ -2,8 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
-import LinkedItem from '../components/LinkedItem';
 import Testimonial from '../components/Testimonial';
+import LinkedItem from '../components/LinkedItem';
 
 const Courses = ({ data }) => {
   const title = data.kontentItemArticle.elements.title.value;

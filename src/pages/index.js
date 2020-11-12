@@ -2,10 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import Layout from '../components/Layout';
+import Testimonial from '../components/Testimonial';
 import CourseListing from '../components/CourseListing';
 import AboutBlock from '../components/AboutBlock';
 import SubjectAreasListing from '../components/SubjectAreasListing';
-import Testimonial from '../components/Testimonial';
 
 const Index = ({ data }) => {
   const metaTitle =
