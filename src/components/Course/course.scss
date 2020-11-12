@@ -1,10 +1,11 @@
 @import "../../assets/scss/variables";
 
-.course__card {
+.course {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  height: 100%;
 }
 
 .course__image {
@@ -21,6 +22,10 @@
 }
 
 @media (min-width: $breakpoint-medium) {
+  .course__text {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
   .course__cta {
     margin-top: 1rem;
   }

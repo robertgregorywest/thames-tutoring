@@ -1,11 +1,16 @@
 @import "../../assets/scss/variables";
 
 .costOption {
+  padding-bottom: 2em;
+  height: 100%;
+}
+
+.costOption__card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 2.5em;
+  padding: 3em;
   margin: 0;
   border: 2px solid var(--color-base);
   height: 100%;

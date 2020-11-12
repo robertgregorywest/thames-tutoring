@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Layout from '../components/Layout';
 import LinkedItem from '../components/LinkedItem';
-import CourseListing from '../components/CourseListing';
 import Testimonial from '../components/Testimonial';
 import Header from '../components/Header';
 
@@ -20,19 +19,19 @@ const Courses = ({ data }) => {
     data.kontentItemArticle.elements.testimonial.value[0].elements.attribution
       .value;
 
-  const featuredCourses = data.allKontentItemCourse.nodes;
-
   return (
     <Layout title={title} description={description}>
       <Header title={title} richText={introduction} />
-      <RichTextElement
-        value={body.value}
-        linkedItems={body.modular_content}
-        resolveLinkedItem={(linkedItem) => (
-          <LinkedItem linkedItem={linkedItem} />
-        )}
-      />
-      <CourseListing title="Courses" featuredCourses={featuredCourses} />
+      <div className="course-body">
+        <RichTextElement
+          value={body.value}
+          linkedItems={body.modular_content}
+          resolveLinkedItem={(linkedItem) => (
+            <LinkedItem linkedItem={linkedItem} />
+          )}
+        />
+      </div>
+
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
   );
@@ -127,50 +126,6 @@ export const pageQuery = graphql`
               }
             }
           }
-        }
-      }
-    }
-    allKontentItemCourse {
-      nodes {
-        elements {
-          title {
-            value
-          }
-          summary_image {
-            value {
-              fluid(maxWidth: 500) {
-                ...KontentAssetFluid
-              }
-              description
-            }
-          }
-          summary {
-            value
-          }
-          url {
-            value
-          }
-          dates {
-            value
-          }
-          cost {
-            value
-          }
-          subject_option {
-            value {
-              ... on kontent_item_subject_option {
-                id
-                elements {
-                  title {
-                    value
-                  }
-                }
-              }
-            }
-          }
-        }
-        system {
-          codename
         }
       }
     }

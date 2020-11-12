@@ -39,7 +39,6 @@
   align-items: center;
   white-space: nowrap;
   margin-bottom: 2rem;
-  color: var(--color-base);
   font-size: calc(1vw + 0.8rem);
   line-height: 1.4em;
   font-weight: 500;
@@ -55,6 +54,11 @@
   margin: 0 10px 0 0;
   width: auto;
   height: 50px;
+}
+
+.site-foot__contact {
+  font-size: 1rem;
+  line-height: 2rem;
 }
 
 .social-icons {

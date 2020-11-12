@@ -25,3 +25,12 @@
   background-color: var(--color-tt-red);
   background: linear-gradient(45deg, var(--color-tt-red) 20%, var(--color-tt-orange) 80%);
 }
+
+.subject-areas-listing__icon:hover {
+  opacity: 0.75;
+}
+
+.subject-areas-listing p {
+  font-size: 1rem;
+  line-height: 2rem;
+}

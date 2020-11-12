@@ -1,11 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import Image from 'gatsby-image';
 import SkewWrapper from '../SkewWrapper';
 import './course.scss';
 
 const Course = ({ course }) => (
-  <div key={course.system.codename} className="grid-cell course__card">
+  <div className="course">
     <div>
       <Image
         className="course__image"
@@ -14,8 +13,8 @@ const Course = ({ course }) => (
       />
       <div>
         <h3 className="course__title">{course.elements.title.value}</h3>
-        <p>{course.elements.summary.value}</p>
-        <p>
+        <p className="course__text">{course.elements.summary.value}</p>
+        <p className="course__text">
           {course.elements.dates.value.split('\n').map((item) => (
             <span key={item}>
               {item}
@@ -23,7 +22,7 @@ const Course = ({ course }) => (
             </span>
           ))}
         </p>
-        <p>{course.elements.cost.value}</p>
+        <p className="course__text">{course.elements.cost.value}</p>
       </div>
     </div>
     <div className="course__cta">
@@ -33,17 +32,5 @@ const Course = ({ course }) => (
     </div>
   </div>
 );
-
-// Course.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   cost: PropTypes.string.isRequired,
-//   unit: PropTypes.string.isRequired,
-//   details: PropTypes.string.isRequired,
-//   cta: PropTypes.string,
-// };
-
-// Course.defaultProps = {
-//   cta: 'Sign up',
-// };
 
 export default Course;

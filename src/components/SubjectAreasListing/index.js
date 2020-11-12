@@ -27,14 +27,16 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
             key={subject.system.codename}
             className="grid-cell subject-areas-listing__cell"
           >
-            <div className="subject-areas-listing__icon">
-              <img
-                src={getIcon(subject.elements.title.value)}
-                width="60px"
-                height="60px"
-                alt={subject.elements.title.value}
-              />
-            </div>
+            <Link to={`/tuition/${subject.system.codename}`}>
+              <span className="subject-areas-listing__icon">
+                <img
+                  src={getIcon(subject.elements.title.value)}
+                  width="60px"
+                  height="60px"
+                  alt={subject.elements.title.value}
+                />
+              </span>
+            </Link>
             <h3 className="subject-areas-listing__subject-title">
               {subject.elements.title.value}
             </h3>

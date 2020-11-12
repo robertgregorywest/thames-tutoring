@@ -5,38 +5,12 @@
   padding: var(--margin);
 }
 
-.course-listing__card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
 .course-listing__title {
   text-align: left;
   margin-top: 0;
 }
 
-.course-listing__figure {
-  margin: 0 0 1rem 0;
-}
-
-// .course-listing__image {
-// }
-
-.course-listing__course-title {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.course-listing__cta {
-  margin-top: 1.5rem;
-}
-
 @media (min-width: $breakpoint-medium) {
-  .course-listing__cta {
-    margin-top: 1rem;
-  }
   .course-listing__title {
     text-align: center;
   }
