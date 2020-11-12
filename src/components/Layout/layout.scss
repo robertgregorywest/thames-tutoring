@@ -10,14 +10,18 @@
 // Content pages
 
 .content-body {
-  width: unquote("min(85ch, 94%)");
+  width: unquote("min(85ch, 90vw)");
   margin: 0 auto;
-  padding: 0 0 4vw 0;
+  padding: 0 0 var(--margin) 0;
 }
 
-.content-body p {
-  font-size: 1.2rem;
-  line-height: 2.75rem;
+.course-body > h2 {
+  text-align: center;
+}
+
+.course-body > p {
+  width: unquote("min(85ch, 90vw)");
+  margin: 0 auto;
 }
 
 // Site navigation

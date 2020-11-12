@@ -98,3 +98,29 @@
     flex: 0 0 25%;
   }
 }
+
+// Content grid system
+
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    unquote("min(85ch, calc(100% - 64px))")
+    1fr;
+  grid-column-gap: 32px;
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 4;
+}
+
+.full-bleed-with-gutter {
+  width: 90%;
+  margin: 0 auto;
+  grid-column: 1 / 4;
+}
