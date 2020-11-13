@@ -8,10 +8,20 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const subjectTemplate = path.resolve('./src/templates/subjectTemplate.jsx');
+    const courseTemplate = path.resolve('./src/templates/courseTemplate.jsx');
 
     graphql(`
       {
         allSubjects: allKontentItemSubjectArea {
+          nodes {
+            elements {
+              url {
+                value
+              }
+            }
+          }
+        }
+        allCourses: allKontentItemCourse {
           nodes {
             elements {
               url {
@@ -31,6 +41,14 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: `/${node.elements.url.value}`,
           component: slash(subjectTemplate),
+          context: { url: `${node.elements.url.value}` },
+        });
+      });
+
+      _.each(result.data.allCourses.nodes, (node) => {
+        createPage({
+          path: `/course/${node.elements.url.value}`,
+          component: slash(courseTemplate),
           context: { url: `${node.elements.url.value}` },
         });
       });

@@ -75,7 +75,7 @@ export const pageQuery = graphql`
                         dates {
                           value
                         }
-                        summary {
+                        introduction {
                           value
                         }
                         summary_image {
@@ -85,6 +85,9 @@ export const pageQuery = graphql`
                             }
                             description
                           }
+                        }
+                        url {
+                          value
                         }
                       }
                       system {

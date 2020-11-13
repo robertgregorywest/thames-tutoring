@@ -26,6 +26,7 @@ const Index = ({ data }) => {
       .value;
 
   const featuredCourses = data.kontentItemHome.elements.featured_courses.value;
+  console.log(featuredCourses);
 
   const showCourses =
     Array.isArray(featuredCourses) && featuredCourses.length > 0;
@@ -120,7 +121,7 @@ export const pageQuery = graphql`
                     description
                   }
                 }
-                summary {
+                introduction {
                   value
                 }
                 url {

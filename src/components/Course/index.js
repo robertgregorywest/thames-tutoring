@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
+import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Image from 'gatsby-image';
 import SkewWrapper from '../SkewWrapper';
 import './course.scss';
@@ -13,22 +15,28 @@ const Course = ({ course }) => (
       />
       <div>
         <h3 className="course__title">{course.elements.title.value}</h3>
-        <p className="course__text">{course.elements.summary.value}</p>
-        <p className="course__text">
-          {course.elements.dates.value.split('\n').map((item) => (
-            <span key={item}>
-              {item}
-              <br />
-            </span>
-          ))}
-        </p>
-        <p className="course__text">{course.elements.cost.value}</p>
+        <div className="course__text">
+          <RichTextElement value={course.elements.introduction.value} />
+        </div>
+        <div className="course__text">
+          <p>
+            {course.elements.dates.value.split('\n').map((item) => (
+              <span key={item}>
+                {item}
+                <br />
+              </span>
+            ))}
+          </p>
+        </div>
+        <div className="course__text">
+          <p>{course.elements.cost.value}</p>
+        </div>
       </div>
     </div>
     <div className="course__cta">
-      <a href="/" className="cta">
+      <Link to={`/course/${course.elements.url.value}`} className="cta">
         <SkewWrapper>More details</SkewWrapper>
-      </a>
+      </Link>
     </div>
   </div>
 );

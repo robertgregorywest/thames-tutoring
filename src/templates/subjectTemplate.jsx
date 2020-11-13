@@ -38,7 +38,7 @@ const SubjectTemplate = ({ data }) => {
           <LinkedItem linkedItem={linkedItem} />
         )}
       />
-      <h2>Our Science Tutors</h2>
+      <h2>Our Tutors</h2>
       <TutorListing tutors={tutors} />
       <Testimonial testimonial={testimonial} attribution={attribution} />
     </Layout>
