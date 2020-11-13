@@ -109,6 +109,7 @@ const Layout = ({
                   >
                     {subjects.map((subject) => (
                       <MenuItemDropdown
+                        key={subject.elements.url.value}
                         to={`/${subject.elements.url.value}`}
                         title={subject.elements.title.value}
                         text={subject.elements.menu_description.value}
@@ -136,6 +137,7 @@ const Layout = ({
               <MenuItem to="/about" text="About" />
               {subjects.map((subject) => (
                 <MenuItem
+                  key={subject.elements.url.value}
                   to={`/${subject.elements.url.value}`}
                   text={subject.elements.title.value}
                 />
