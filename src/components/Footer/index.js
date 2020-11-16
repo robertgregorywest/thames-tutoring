@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import logo from '../../assets/logos/logo-black.svg';
 import './footer.scss';
 
-const Footer = ({ email, phoneNumber }) => (
+const Footer = ({ email, phoneNumber, subjects }) => (
   <footer className="site-foot">
     <div className="site-foot-left">
       <Link className="footer-logo" to="/">
@@ -61,15 +61,13 @@ const Footer = ({ email, phoneNumber }) => (
             <li role="menuitem">
               <Link to="/about">About</Link>
             </li>
-            <li role="menuitem">
-              <Link to="/science_tuition">Science Tuition</Link>
-            </li>
-            <li role="menuitem">
-              <Link to="/maths_tuition">Maths Tuition</Link>
-            </li>
-            <li role="menuitem">
-              <Link to="/english_tuition">English Tuition</Link>
-            </li>
+            {subjects.map((subject) => (
+              <li role="menuitem" key={subject.elements.url.value}>
+                <Link to={`/${subject.elements.url.value}`}>
+                  {subject.elements.title.value}
+                </Link>
+              </li>
+            ))}
             <li role="menuitem">
               <Link to="/courses">Courses</Link>
             </li>
