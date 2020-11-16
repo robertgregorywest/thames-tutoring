@@ -72,7 +72,13 @@ export const pageQuery = graphql`
                         cost {
                           value
                         }
-                        dates {
+                        start_date {
+                          value
+                        }
+                        end_date {
+                          value
+                        }
+                        location {
                           value
                         }
                         introduction {

@@ -151,7 +151,7 @@ const Layout = ({
       </div>
       <Header title={title} richText={introduction} />
       <main className="main-wrapper">{children}</main>
-      <Footer email={email} phoneNumber={phoneNumber} />
+      <Footer email={email} phoneNumber={phoneNumber} subjects={subjects} />
     </div>
   );
 };

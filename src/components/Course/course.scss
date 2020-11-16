@@ -17,6 +17,18 @@
   margin-bottom: 1rem;
 }
 
+.course__details-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.course__details-text {
+  margin-left: 1rem;
+}
+
 .course__cta {
   margin-top: 1.5rem;
 }
