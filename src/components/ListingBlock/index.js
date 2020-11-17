@@ -1,11 +1,11 @@
 /* eslint-disable comma-dangle */
 import React from 'react';
-import ShapeSection, { gradients } from '../ShapeSection';
+import ShapeSection from '../ShapeSection';
 import CostOption from '../CostOption';
 import Course from '../Course';
 import './listingBlock.scss';
 
-const ListingBlock = ({ items, useShape, fullWidth }) => {
+const ListingBlock = ({ items, useShape, fullWidth, backgroundGradient }) => {
   const components = [];
   items.forEach((item) => {
     switch (item.system.type) {
@@ -41,7 +41,7 @@ const ListingBlock = ({ items, useShape, fullWidth }) => {
     <ConditionalWrapper
       condition={useShape}
       wrapper={(children) => (
-        <ShapeSection flippedBottom gradient={gradients.BLUE}>
+        <ShapeSection flippedBottom gradient={backgroundGradient}>
           {children}
         </ShapeSection>
       )}

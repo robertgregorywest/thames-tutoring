@@ -21,6 +21,9 @@ const LinkedItem = ({ linkedItem }) => {
           useShape={
             linkedItem.elements.shape_dividers.value[0].codename === 'yes'
           }
+          backgroundGradient={
+            linkedItem.elements.background_gradient.value[0].codename
+          }
           fullWidth={
             linkedItem.elements.width.value[0].codename === 'full_width'
           }

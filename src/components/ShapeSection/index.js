@@ -6,6 +6,8 @@ export const gradients = {
   ORANGE: 'orange',
   BLUE: 'blue',
   PURPLE: 'purple',
+  YELLOW: 'yellow',
+  GREEN: 'green',
 };
 
 const ShapeSection = ({ children, flippedTop, flippedBottom, gradient }) => {
@@ -15,6 +17,10 @@ const ShapeSection = ({ children, flippedTop, flippedBottom, gradient }) => {
         return ' shapeSection--blue';
       case gradients.PURPLE:
         return ' shapeSection--purple';
+      case gradients.YELLOW:
+        return ' shapeSection--yellow';
+      case gradients.GREEN:
+        return ' shapeSection--green';
       default:
         return ' shapeSection--orange';
     }

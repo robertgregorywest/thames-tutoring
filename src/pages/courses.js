@@ -108,6 +108,11 @@ export const pageQuery = graphql`
                     codename
                   }
                 }
+                background_gradient {
+                  value {
+                    codename
+                  }
+                }
                 width {
                   value {
                     codename
