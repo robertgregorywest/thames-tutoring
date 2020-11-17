@@ -10,7 +10,7 @@ const TutorListing = ({ tutors }) => {
   return (
     <div className="main-wrapper__width-90 tutorListing">
       <div
-        className={`grid grid--gutters small-grid--full large-grid--1of${gridColumns}`}
+        className={`grid grid--gutters grid--full small-grid--1of2 large-grid--1of${gridColumns}`}
       >
         {tutors &&
           tutors.map((tutor) => (
