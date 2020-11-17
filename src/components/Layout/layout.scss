@@ -41,6 +41,12 @@
   margin-right: auto;
 }
 
+@media (max-width: $breakpoint-small) {
+  .main-wrapper__width-75 {
+    width: 100%;
+  }
+}
+
 // Site navigation
 
 .site-head {
