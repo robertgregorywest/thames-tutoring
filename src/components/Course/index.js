@@ -1,6 +1,5 @@
-/* eslint-disable comma-dangle */
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Image from 'gatsby-image';
 import SkewWrapper from '../SkewWrapper';
@@ -62,5 +61,58 @@ const Course = ({ course }) => {
     </div>
   );
 };
+
+export const fragmentQuery = graphql`
+  fragment CourseInfo on kontent_item_course {
+    id
+    system {
+      codename
+      type
+    }
+    elements {
+      title {
+        value
+      }
+      summary_image {
+        value {
+          fluid(maxWidth: 500) {
+            ...KontentAssetFluid
+          }
+          description
+        }
+      }
+      introduction {
+        value
+      }
+      url {
+        value
+      }
+      start_date {
+        value
+      }
+      end_date {
+        value
+      }
+      location {
+        value
+      }
+      cost {
+        value
+      }
+      subject_option {
+        value {
+          ... on kontent_item_subject_option {
+            id
+            elements {
+              title {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default Course;

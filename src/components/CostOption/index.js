@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import './costOption.scss';
 
@@ -31,5 +32,29 @@ CostOption.propTypes = {
 CostOption.defaultProps = {
   cta: 'Sign up',
 };
+
+export const fragmentQuery = graphql`
+  fragment CostOptionInfo on kontent_item_cost_option {
+    id
+    elements {
+      title {
+        value
+      }
+      details {
+        value
+      }
+      cost {
+        value
+      }
+      unit {
+        value
+      }
+    }
+    system {
+      codename
+      type
+    }
+  }
+`;
 
 export default CostOption;

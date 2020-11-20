@@ -70,15 +70,7 @@ export const pageQuery = graphql`
         testimonial {
           value {
             ... on kontent_item_testimonial {
-              id
-              elements {
-                testimonial {
-                  value
-                }
-                attribution {
-                  value
-                }
-              }
+              ...TestimonialInfo
             }
           }
         }

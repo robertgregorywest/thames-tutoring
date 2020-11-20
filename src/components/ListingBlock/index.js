@@ -1,5 +1,5 @@
-/* eslint-disable comma-dangle */
 import React from 'react';
+import { graphql } from 'gatsby';
 import ShapeSection from '../ShapeSection';
 import CostOption from '../CostOption';
 import Course from '../Course';
@@ -60,5 +60,42 @@ const ListingBlock = ({ items, useShape, fullWidth, backgroundGradient }) => {
     </ConditionalWrapper>
   );
 };
+
+export const fragmentQuery = graphql`
+  fragment ListingBlockInfo on kontent_item_listing_block {
+    id
+    elements {
+      items {
+        value {
+          ... on kontent_item_course {
+            ...CourseInfo
+          }
+          ... on kontent_item_cost_option {
+            ...CostOptionInfo
+          }
+        }
+      }
+      shape_dividers {
+        value {
+          codename
+        }
+      }
+      background_gradient {
+        value {
+          codename
+        }
+      }
+      width {
+        value {
+          codename
+        }
+      }
+    }
+    system {
+      codename
+      type
+    }
+  }
+`;
 
 export default ListingBlock;

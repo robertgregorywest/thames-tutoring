@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import Image from 'gatsby-image';
 import SkewWrapper from '../SkewWrapper';
@@ -46,5 +47,39 @@ const TutorListing = ({ tutors }) => {
     </div>
   );
 };
+
+export const fragmentQuery = graphql`
+  fragment TutorListingInfo on kontent_item_tutor {
+    id
+    elements {
+      tutor_name {
+        value
+      }
+      introduction {
+        value
+      }
+      summary_picture {
+        value {
+          fluid(maxWidth: 500) {
+            ...KontentAssetFluid
+          }
+          description
+        }
+      }
+      teaching_provision {
+        value {
+          ... on kontent_item_subject_option {
+            id
+            elements {
+              title {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default TutorListing;

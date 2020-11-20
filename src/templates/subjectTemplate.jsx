@@ -67,103 +67,21 @@ export const pageQuery = graphql`
           value
           modular_content {
             ... on kontent_item_listing_block {
-              id
-              elements {
-                items {
-                  value {
-                    ... on kontent_item_cost_option {
-                      id
-                      elements {
-                        title {
-                          value
-                        }
-                        details {
-                          value
-                        }
-                        cost {
-                          value
-                        }
-                        unit {
-                          value
-                        }
-                      }
-                      system {
-                        codename
-                        type
-                      }
-                    }
-                  }
-                }
-                shape_dividers {
-                  value {
-                    codename
-                  }
-                }
-                background_gradient {
-                  value {
-                    codename
-                  }
-                }
-                width {
-                  value {
-                    codename
-                  }
-                }
-              }
-              system {
-                codename
-                type
-              }
+              ...ListingBlockInfo
             }
           }
         }
         tutors {
           value {
             ... on kontent_item_tutor {
-              id
-              elements {
-                tutor_name {
-                  value
-                }
-                introduction {
-                  value
-                }
-                summary_picture {
-                  value {
-                    fluid(maxWidth: 500) {
-                      ...KontentAssetFluid
-                    }
-                    description
-                  }
-                }
-                teaching_provision {
-                  value {
-                    ... on kontent_item_subject_option {
-                      id
-                      elements {
-                        title {
-                          value
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+              ...TutorListingInfo
             }
           }
         }
         testimonial {
           value {
             ... on kontent_item_testimonial {
-              id
-              elements {
-                testimonial {
-                  value
-                }
-                attribution {
-                  value
-                }
-              }
+              ...TestimonialInfo
             }
           }
         }

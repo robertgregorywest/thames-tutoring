@@ -8,7 +8,7 @@ const CourseListing = ({ title, featuredCourses }) => (
     <div className="grid grid--gutters grid--full large-grid--fit">
       {featuredCourses &&
         featuredCourses.map((course) => (
-          <div key={course.system.codename} className="grid-cell">
+          <div key={course.id} className="grid-cell">
             <Course course={course} />
           </div>
         ))}

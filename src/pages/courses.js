@@ -59,85 +59,14 @@ export const pageQuery = graphql`
           value
           modular_content {
             ... on kontent_item_listing_block {
-              id
-              elements {
-                items {
-                  value {
-                    ... on kontent_item_course {
-                      id
-                      elements {
-                        title {
-                          value
-                        }
-                        cost {
-                          value
-                        }
-                        start_date {
-                          value
-                        }
-                        end_date {
-                          value
-                        }
-                        location {
-                          value
-                        }
-                        introduction {
-                          value
-                        }
-                        summary_image {
-                          value {
-                            fluid(maxWidth: 500) {
-                              ...KontentAssetFluid
-                            }
-                            description
-                          }
-                        }
-                        url {
-                          value
-                        }
-                      }
-                      system {
-                        codename
-                        type
-                      }
-                    }
-                  }
-                }
-                shape_dividers {
-                  value {
-                    codename
-                  }
-                }
-                background_gradient {
-                  value {
-                    codename
-                  }
-                }
-                width {
-                  value {
-                    codename
-                  }
-                }
-              }
-              system {
-                codename
-                type
-              }
+              ...ListingBlockInfo
             }
           }
         }
         testimonial {
           value {
             ... on kontent_item_testimonial {
-              id
-              elements {
-                testimonial {
-                  value
-                }
-                attribution {
-                  value
-                }
-              }
+              ...TestimonialInfo
             }
           }
         }

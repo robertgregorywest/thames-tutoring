@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
 import './subjectAreasListing.scss';
 import abacus from '../../assets/icons/abacus.svg';
@@ -54,5 +54,26 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
     </div>
   </div>
 );
+
+export const fragmentQuery = graphql`
+  fragment SubjectAreasListingInfo on kontent_item_subject_area {
+    id
+    elements {
+      title {
+        value
+      }
+      summary {
+        value
+      }
+      url {
+        value
+      }
+    }
+    system {
+      codename
+      type
+    }
+  }
+`;
 
 export default SubjectAreasListing;

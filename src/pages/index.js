@@ -26,10 +26,6 @@ const Index = ({ data }) => {
       .value;
 
   const featuredCourses = data.kontentItemHome.elements.featured_courses.value;
-  console.log(featuredCourses);
-
-  const showCourses =
-    Array.isArray(featuredCourses) && featuredCourses.length > 0;
 
   const subjectAreas = data.kontentItemHome.elements.subject_areas.value;
 
@@ -43,12 +39,7 @@ const Index = ({ data }) => {
       <figure className="main-wrapper__full">
         <Image fluid={heroImage.fluid} alt={heroImage.description} />
       </figure>
-      {showCourses && (
-        <CourseListing
-          title="Latest Courses"
-          featuredCourses={featuredCourses}
-        />
-      )}
+      <CourseListing title="Latest Courses" featuredCourses={featuredCourses} />
       <AboutBlock title={aboutUsTitle} richText={aboutUsRichText} />
       <SubjectAreasListing title="What We Cover" subjectAreas={subjectAreas} />
       <Testimonial testimonial={testimonial} attribution={attribution} />
@@ -85,21 +76,6 @@ export const pageQuery = graphql`
             description
           }
         }
-        testimonial {
-          value {
-            ... on kontent_item_testimonial {
-              id
-              elements {
-                testimonial {
-                  value
-                }
-                attribution {
-                  value
-                }
-              }
-            }
-          }
-        }
         about_us_title {
           value
         }
@@ -109,74 +85,21 @@ export const pageQuery = graphql`
         featured_courses {
           value {
             ... on kontent_item_course {
-              elements {
-                title {
-                  value
-                }
-                summary_image {
-                  value {
-                    fluid(maxWidth: 500) {
-                      ...KontentAssetFluid
-                    }
-                    description
-                  }
-                }
-                introduction {
-                  value
-                }
-                url {
-                  value
-                }
-                start_date {
-                  value
-                }
-                end_date {
-                  value
-                }
-                location {
-                  value
-                }
-                cost {
-                  value
-                }
-                subject_option {
-                  value {
-                    ... on kontent_item_subject_option {
-                      id
-                      elements {
-                        title {
-                          value
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              system {
-                codename
-              }
+              ...CourseInfo
             }
           }
         }
         subject_areas {
           value {
             ... on kontent_item_subject_area {
-              id
-              elements {
-                title {
-                  value
-                }
-                summary {
-                  value
-                }
-                url {
-                  value
-                }
-              }
-              system {
-                codename
-                type
-              }
+              ...SubjectAreasListingInfo
+            }
+          }
+        }
+        testimonial {
+          value {
+            ... on kontent_item_testimonial {
+              ...TestimonialInfo
             }
           }
         }
