@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { RichTextElement } from '@kentico/gatsby-kontent-components';
+import SubjectIcon from '../SubjectIcon';
 import './subjectAreasListing.scss';
-import abacus from '../../assets/icons/abacus.svg';
-import flask from '../../assets/icons/flask.svg';
-import book from '../../assets/icons/book-open.svg';
 
-function getIcon(subjectArea) {
+function getLinkStyle(subjectArea) {
   switch (subjectArea.toLowerCase()) {
     case 'science tuition':
-      return flask;
+      return 'cta-secondary--blue';
     case 'english tuition':
-      return book;
+      return 'cta-secondary--yellow';
     default:
-      return abacus;
+      return 'cta-secondary--green';
   }
 }
 
@@ -28,14 +26,11 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
             className="grid-cell subject-areas-listing__cell"
           >
             <Link to={`/${subject.elements.url.value}`}>
-              <span className="subject-areas-listing__icon">
-                <img
-                  src={getIcon(subject.elements.title.value)}
-                  width="60px"
-                  height="60px"
-                  alt={subject.elements.title.value}
-                />
-              </span>
+              <SubjectIcon
+                title={subject.elements.title.value}
+                backgroundSize="100px"
+                iconSize="60px"
+              />
             </Link>
             <h3 className="subject-areas-listing__subject-title">
               {subject.elements.title.value}
@@ -43,7 +38,9 @@ const SubjectAreasListing = ({ title, subjectAreas }) => (
             <RichTextElement value={subject.elements.summary.value} />
             <p>
               <Link
-                className="subject-areas-listing__link cta-secondary"
+                className={`subject-areas-listing__link cta-secondary ${getLinkStyle(
+                  subject.elements.title.value
+                )}`}
                 to={`/${subject.elements.url.value}`}
               >
                 Learn more about {subject.elements.title.value}

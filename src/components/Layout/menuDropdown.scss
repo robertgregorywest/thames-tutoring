@@ -52,18 +52,6 @@
   width: 100%;
 }
 
-.menu-dropdown__icon {
-  margin: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-tt-red);
-  background: linear-gradient(45deg, var(--color-tt-red) 20%, var(--color-tt-orange) 80%);
-}
-
 .menu-dropdown__text {
   margin-left: 1em;
   flex: 1;

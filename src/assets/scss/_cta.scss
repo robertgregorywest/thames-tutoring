@@ -5,11 +5,35 @@
   white-space: nowrap;
 }
 
-.cta-secondary:hover {
-  opacity: 0.75;
+.cta-secondary {
+  font-weight: var(--font-bold);
 }
 
 .cta-secondary:after {
   content: "\279C";
   padding-left: 6px;
+}
+
+.cta-secondary--blue {
+  color: rgba(2, 132, 199, 1);
+}
+
+.cta-secondary--blue:hover {
+  color: rgba(7, 89, 133, 1);
+}
+
+.cta-secondary--green {
+  color: rgba(22, 163, 74, 1);
+}
+
+.cta-secondary--green:hover {
+  color: rgba(22, 101, 52, 1);
+}
+
+.cta-secondary--yellow {
+  color: rgba(245, 158, 11, 1);
+}
+
+.cta-secondary--yellow:hover {
+  color: rgba(180, 83, 9, 1);
 }

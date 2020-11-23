@@ -1,7 +1,7 @@
 @import "../../assets/scss/variables";
 
 .about {
-  color: var(--color-bg);
+  color: var(--color-gradient-text);
 }
 
 .about__title {
@@ -20,7 +20,7 @@
 }
 
 .about__link {
-  color: var(--color-bg);
+  color: var(--color-gradient-text);
 }
 
 @media (max-width: $breakpoint-medium) {

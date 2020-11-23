@@ -5,28 +5,12 @@
 
 .subject-areas-listing__title {
   margin-top: 0;
+  margin-bottom: 2rem;
 }
 
 .subject-areas-listing__subject-title {
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
-}
-
-.subject-areas-listing__icon {
-  margin: 2em auto;
-  flex-shrink: 0;
-  width: 6.5rem;
-  height: 6.5rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-tt-red);
-  background: linear-gradient(45deg, var(--color-tt-red) 20%, var(--color-tt-orange) 80%);
-}
-
-.subject-areas-listing__icon:hover {
-  opacity: 0.75;
 }
 
 .subject-areas-listing p {

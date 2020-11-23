@@ -3,6 +3,7 @@
 .costOption {
   padding-bottom: 2em;
   height: 100%;
+  color: var(--color-gradient-text);
 }
 
 .costOption__card {
@@ -12,7 +13,7 @@
   box-sizing: border-box;
   padding: 3em;
   margin: 0;
-  border: 2px solid var(--color-base);
+  border: 5px solid var(--color-gradient-text);
   height: 100%;
 }
 
@@ -33,12 +34,14 @@ p.costOption__unit {
   font-size: 0.9em;
   margin-top: 0.5em;
   line-height: 1em;
+  font-weight: var(--font-bold);
 }
 
 p.costOption__details {
   margin-top: 2em;
   margin-bottom: 0;
   line-height: 1.5em;
+  font-weight: var(--font-bold);
 }
 
 .costOption__cta {
@@ -48,5 +51,5 @@ p.costOption__details {
 }
 
 .costOption__link {
-  color: var(--color-base);
+  color: var(--color-gradient-text);
 }

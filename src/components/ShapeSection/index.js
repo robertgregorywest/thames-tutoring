@@ -10,23 +10,27 @@ export const gradients = {
   GREEN: 'green',
 };
 
+// alt for purple from-fuchsia-500 to-purple-600 from-purple-500 to-indigo-500
+// from-lime-300 to-emerald-500
 const ShapeSection = ({ children, flippedTop, flippedBottom, gradient }) => {
   const gradientStyle = () => {
     switch (gradient) {
       case gradients.BLUE:
-        return ' shapeSection--blue';
+        return 'from-light-blue-400 to-indigo-500';
       case gradients.PURPLE:
-        return ' shapeSection--purple';
+        return 'from-fuchsia-500 to-purple-600';
       case gradients.YELLOW:
-        return ' shapeSection--yellow';
+        return 'from-yellow-400 to-orange-500';
       case gradients.GREEN:
-        return ' shapeSection--green';
+        return 'from-green-400 to-cyan-500';
       default:
-        return ' shapeSection--orange';
+        return 'from-orange-400 to-pink-600';
     }
   };
   return (
-    <div className={`main-wrapper__full shapeSection${gradientStyle()}`}>
+    <div
+      className={`main-wrapper__full shapeSection bg-gradient-to-br ${gradientStyle()}`}
+    >
       <div
         className={`shapeSection__divider-top${
           flippedTop ? ' shapeSection__divider-top--flipped' : ''
