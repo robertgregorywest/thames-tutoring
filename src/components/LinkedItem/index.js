@@ -7,12 +7,7 @@ const LinkedItem = ({ linkedItem }) => {
 
   switch (type) {
     case 'testimonial': {
-      return (
-        <Testimonial
-          testimonial={linkedItem.elements.testimonial}
-          attribution={linkedItem.elements.attribution.value}
-        />
-      );
+      return <Testimonial testimonial={linkedItem.elements.testimonial} />;
     }
     case 'listing_block': {
       return (

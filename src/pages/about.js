@@ -14,9 +14,6 @@ const About = ({ data }) => {
   const body = data.kontentItemArticle.elements.body;
   const testimonial =
     data.kontentItemArticle.elements.testimonial.value[0].elements.testimonial;
-  const attribution =
-    data.kontentItemArticle.elements.testimonial.value[0].elements.attribution
-      .value;
 
   return (
     <Layout
@@ -37,7 +34,7 @@ const About = ({ data }) => {
           </figure>
         )}
       />
-      <Testimonial testimonial={testimonial} attribution={attribution} />
+      <Testimonial testimonial={testimonial} />
     </Layout>
   );
 };

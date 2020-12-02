@@ -14,9 +14,6 @@ const Courses = ({ data }) => {
 
   const testimonial =
     data.kontentItemArticle.elements.testimonial.value[0].elements.testimonial;
-  const attribution =
-    data.kontentItemArticle.elements.testimonial.value[0].elements.attribution
-      .value;
 
   return (
     <Layout
@@ -32,7 +29,7 @@ const Courses = ({ data }) => {
           <LinkedItem linkedItem={linkedItem} />
         )}
       />
-      <Testimonial testimonial={testimonial} attribution={attribution} />
+      <Testimonial testimonial={testimonial} />
     </Layout>
   );
 };

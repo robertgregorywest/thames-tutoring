@@ -20,9 +20,6 @@ const SubjectTemplate = ({ data }) => {
   const testimonial =
     data.kontentItemSubjectArea.elements.testimonial.value[0].elements
       .testimonial;
-  const attribution =
-    data.kontentItemSubjectArea.elements.testimonial.value[0].elements
-      .attribution.value;
 
   return (
     <Layout
@@ -40,7 +37,7 @@ const SubjectTemplate = ({ data }) => {
       />
       <h2>Our Tutors</h2>
       <TutorListing tutors={tutors} />
-      <Testimonial testimonial={testimonial} attribution={attribution} />
+      <Testimonial testimonial={testimonial} />
     </Layout>
   );
 };

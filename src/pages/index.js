@@ -21,9 +21,6 @@ const Index = ({ data }) => {
 
   const testimonial =
     data.kontentItemHome.elements.testimonial.value[0].elements.testimonial;
-  const attribution =
-    data.kontentItemHome.elements.testimonial.value[0].elements.attribution
-      .value;
 
   const featuredCourses = data.kontentItemHome.elements.featured_courses.value;
 
@@ -42,7 +39,7 @@ const Index = ({ data }) => {
       <CourseListing title="Latest Courses" featuredCourses={featuredCourses} />
       <AboutBlock title={aboutUsTitle} richText={aboutUsRichText} />
       <SubjectAreasListing title="What We Cover" subjectAreas={subjectAreas} />
-      <Testimonial testimonial={testimonial} attribution={attribution} />
+      <Testimonial testimonial={testimonial} />
     </Layout>
   );
 };

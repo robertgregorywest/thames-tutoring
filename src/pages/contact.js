@@ -4,6 +4,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { navigate } from 'gatsby-link';
 import Layout from '../components/Layout';
+import Testimonial from '../components/Testimonial';
 import '../assets/scss/pages/contact.scss';
 
 function encode(data) {
@@ -17,6 +18,8 @@ const Contact = ({ data }) => {
   const description =
     data.kontentItemArticle.elements.seo_metadata__meta_description.value;
   const intro = data.kontentItemArticle.elements.body;
+  const testimonial =
+    data.kontentItemArticle.elements.testimonial.value[0].elements.testimonial;
 
   const [state, setState] = React.useState({});
 
@@ -115,6 +118,7 @@ const Contact = ({ data }) => {
           </button>
         </div>
       </form>
+      <Testimonial testimonial={testimonial} />
     </Layout>
   );
 };
@@ -136,6 +140,13 @@ export const pageQuery = graphql`
         }
         body {
           value
+        }
+        testimonial {
+          value {
+            ... on kontent_item_testimonial {
+              ...TestimonialInfo
+            }
+          }
         }
       }
     }
