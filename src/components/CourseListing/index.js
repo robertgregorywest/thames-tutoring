@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import Course from '../Course';
 import './courseListing.scss';
 
@@ -12,6 +13,11 @@ const CourseListing = ({ title, featuredCourses }) => (
             <Course course={course} />
           </div>
         ))}
+    </div>
+    <div className="course-listing__view-all-container">
+      <Link to="/courses" className="course-listing__view-all cta-secondary">
+        View All Courses
+      </Link>
     </div>
   </div>
 );

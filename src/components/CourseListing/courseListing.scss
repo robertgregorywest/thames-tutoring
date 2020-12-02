@@ -9,8 +9,18 @@
   margin-top: 0;
 }
 
+.course-listing__view-all-container {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
 @media (min-width: $breakpoint-medium) {
   .course-listing__title {
+    text-align: center;
+  }
+
+  .course-listing__view-all-container {
+    margin-top: 4rem;
     text-align: center;
   }
 }
