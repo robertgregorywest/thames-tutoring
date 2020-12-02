@@ -64,6 +64,11 @@ export const pageQuery = graphql`
         }
         company_vision_statement {
           value
+          modular_content {
+            ... on kontent_item_call_to_action {
+              ...CallToActionInfo
+            }
+          }
         }
         hero_image {
           value {

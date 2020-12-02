@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables";
+
 .cta {
   line-height: 1.75em;
   letter-spacing: 0.025em;
@@ -36,4 +38,14 @@
 
 .cta-secondary--yellow:hover {
   color: rgba(180, 83, 9, 1);
+}
+
+.cta--large {
+  font-size: 1.2rem;
+}
+
+@media (min-width: $breakpoint-medium) {
+  .cta--large {
+    font-size: 1.5rem;
+  }
 }

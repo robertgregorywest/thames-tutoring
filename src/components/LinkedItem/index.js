@@ -1,4 +1,5 @@
 import React from 'react';
+import CallToAction from '../CallToAction';
 import Testimonial from '../Testimonial';
 import ListingBlock from '../ListingBlock';
 
@@ -6,6 +7,14 @@ const LinkedItem = ({ linkedItem }) => {
   const type = linkedItem.system.type;
 
   switch (type) {
+    case 'call_to_action': {
+      return (
+        <CallToAction
+          title={linkedItem.elements.title.value}
+          target={linkedItem.elements.target_page.value[0].elements.url.value}
+        />
+      );
+    }
     case 'testimonial': {
       return <Testimonial testimonial={linkedItem.elements.testimonial} />;
     }
